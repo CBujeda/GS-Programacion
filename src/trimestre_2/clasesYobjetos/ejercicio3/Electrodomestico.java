@@ -46,7 +46,12 @@ public class Electrodomestico {
 	 * 		 de no ser asi devolvera la letra de default
 	 */
 	public String comprobarConsumoEnergetico(String letra){
-		if(letra.equalsIgnoreCase("F") || letra.equalsIgnoreCase("A")) {
+		if(color.equalsIgnoreCase("A")
+				|| color.equalsIgnoreCase("B")
+				|| color.equalsIgnoreCase("C")
+				|| color.equalsIgnoreCase("D")
+				|| color.equalsIgnoreCase("E")
+				|| color.equalsIgnoreCase("F")){
 			return letra;
 		}else {
 			System.out.println("Consumo erroneo");
@@ -80,9 +85,18 @@ public class Electrodomestico {
 	public double precioFinal(double precio){
 		if(this.consumo.equalsIgnoreCase("A")) {
 			precio = precio + 100; 
+		}else if(this.consumo.equalsIgnoreCase("B")) {
+			precio = precio + 80;
+		}else if(this.consumo.equalsIgnoreCase("C")) {
+			precio = precio + 60;
+		}else if(this.consumo.equalsIgnoreCase("D")) {
+			precio = precio + 50;
+		}else if(this.consumo.equalsIgnoreCase("E")) {
+			precio = precio + 30;
 		}else if(this.consumo.equalsIgnoreCase("F")) {
 			precio = precio + 10;
 		}
+		
 		if(this.peso >= 0 && this.peso <= 19) {
 			precio = precio + 10;
 		}else if(this.peso >= 20 && this.peso <= 49) {

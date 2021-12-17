@@ -51,30 +51,7 @@ public class Television extends Electrodomestico{
 	 */
 	@Override
 	public double precioFinal(double precio){
-		if(this.consumo.equalsIgnoreCase("A")) {
-			precio = precio + 100; 
-		}else if(this.consumo.equalsIgnoreCase("B")) {
-			precio = precio + 80;
-		}else if(this.consumo.equalsIgnoreCase("C")) {
-			precio = precio + 60;
-		}else if(this.consumo.equalsIgnoreCase("D")) {
-			precio = precio + 50;
-		}else if(this.consumo.equalsIgnoreCase("E")) {
-			precio = precio + 30;
-		}else if(this.consumo.equalsIgnoreCase("F")) {
-			precio = precio + 10;
-		}
-		
-		
-		if(this.peso >= 0 && this.peso <= 19) { //Calcula el precio en base a el peso
-			precio = precio + 10;
-		}else if(this.peso >= 20 && this.peso <= 49) {
-			precio = precio + 50;
-		}else if(this.peso >= 50 && this.peso <=75) {
-			precio = precio + 80;
-		}else if(this.peso >= 80) {
-			precio = precio + 100;
-		}
+		super.precioFinal(precio);
 		
 		if(this.resolucion > 40) { // Calcula el precio en base a la resolucion
 			precio = (precio + (precio*0.3));

@@ -8,15 +8,17 @@ public class Equipo {
 	private int puntosGanados;
 	private int puntosPerdidos;
 	private int partidosEmpatados;
+	private int puntos;
 
-	public Equipo(String nombre, String estadio, int fundacion, Jugador[] jugador, int puntosGanados, int puntosPerdidos, int partidosEmpatados) {
+	public Equipo(String nombre, String estadio, int fundacion, Jugador[] jugador, int partidosGanados, int partidosPerdidos, int partidosEmpatados, int puntos) {
 		this.nombre = nombre;
 		this.estadio = estadio;
 		this.fundacion = fundacion;
 		this.jugador = jugador;
-		this.puntosGanados = puntosGanados;
-		this.puntosPerdidos = puntosPerdidos;
+		this.puntosGanados = partidosGanados;
+		this.puntosPerdidos = partidosPerdidos;
 		this.partidosEmpatados = partidosEmpatados;
+		this.puntos = puntos;
 	}
 	/**
 	 * METODOS SET
@@ -33,14 +35,17 @@ public class Equipo {
 	public void setFundacion(int fundacion) {
 		this.fundacion = fundacion;
 	}
-	public void setPuntosGanados(int puntosGanados) {
+	public void setPartidosGanados(int puntosGanados) {
 		this.puntosGanados = puntosGanados;
 	}
-	public void setPuntosPerdidos(int puntosPerdidos) {
+	public void setPartidosPerdidos(int puntosPerdidos) {
 		this.puntosPerdidos = puntosPerdidos;
 	}
 	public void setPartidosEmpatados(int partidosEmpatados) {
 		this.partidosEmpatados = partidosEmpatados;
+	}
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
 	}
 	
 	/**
@@ -58,16 +63,18 @@ public class Equipo {
 	public Jugador[] getJugadores() {
 		return this.jugador;
 	}
-	public int getPuntosGanados() {
+	public int getPartidosGanados() {
 		return this.puntosGanados;
 	}
-	public int getPuntosPerdidos() {
+	public int getPartidosPerdidos() {
 		return this.puntosPerdidos;
 	}
 	public int getPartidosEmpatados() {
 		return this.partidosEmpatados;
 	}
-	
+	public int getPuntos() {
+		return this.puntos;
+	}
 	
 	
 }

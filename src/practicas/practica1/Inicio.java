@@ -4,6 +4,7 @@ public class Inicio {
 
 	public static void main(String[] arg) {
 		//Utiles.genPlayer();
-		System.out.println(Utiles.apellido());
+		Show.all(Generator.genLiga());
+		//System.out.println(Generator.genNombre());
 	}
 }

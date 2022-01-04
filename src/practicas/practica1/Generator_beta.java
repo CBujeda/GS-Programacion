@@ -1,6 +1,7 @@
 package practicas.practica1;
 
-public class Generator {
+public class Generator_beta {
+
 	public static Liga[] genLiga() {
 		int numL = 1;
 		Liga[] l = new Liga[numL];
@@ -18,30 +19,31 @@ public class Generator {
 	}
 	
 	public static Equipo[] genEquipo() {
-		Equipo[] e = new Equipo[15];
+		int numE = 15;
+		Equipo[] e = new Equipo[numE];
+		Jugador[] j0 = new Jugador[11];
+		Jugador[] j1 = new Jugador[11];
+		Jugador[] j2 = new Jugador[11];
+		Jugador[] j3 = new Jugador[11];
+		Jugador[] j4 = new Jugador[11];
+		Jugador[] j5 = new Jugador[11];
+		Jugador[] j6 = new Jugador[11];
+		Jugador[] j7 = new Jugador[11];
+		Jugador[] j8 = new Jugador[11];
+		Jugador[] j9 = new Jugador[11];
+		Jugador[] j10 = new Jugador[11];
+		Jugador[] j12 = new Jugador[11];
 		String nombre = "";
 		String estadio = "";
 		int fundacion = 1999;
-		Jugador[] j0 = genPlayer(0,15);
-		Jugador[] j1 = genPlayer(1,15);
-		Jugador[] j2 = genPlayer(2,15);
-		Jugador[] j3 = genPlayer(3,15);
-		Jugador[] j4 = genPlayer(4,15);
-		Jugador[] j5 = genPlayer(5,15);
-		Jugador[] j6 = genPlayer(6,15);
-		Jugador[] j7 = genPlayer(7,15);
-		Jugador[] j8 = genPlayer(8,15);
-		Jugador[] j9 = genPlayer(9,15);
-		Jugador[] j10 = genPlayer(10,15);
-		Jugador[] j11 = genPlayer(11,15);
-		Jugador[] j12 = genPlayer(12,15);
-		Jugador[] j13 = genPlayer(13,15);
-		Jugador[] j14 = genPlayer(14,15);
+		Jugador[] jugadores = null;
 		int puntos = 0;
 		int pGanados = 0;
 		int pPerdidos = 0;
 		int pEmpatados = 0;
+
 		for(int i = 0; i < e.length; i++) {
+
 			nombre = genNomAp();
 			estadio = genNomAp();
 			fundacion = (int) Math.round(Math.random()*(2022 - 1800) + 1800);
@@ -49,6 +51,21 @@ public class Generator {
 			pGanados = (int) Math.round(Math.random()*100);
 			pPerdidos = (int) Math.round(Math.random()*100);
 			pEmpatados = (int) Math.round(Math.random()*100);
+			
+			Jugador[][] jm = genPlayer(i, numE);
+			for(int s = 0; s < jm.length; s++ ) {
+				if(i == 0) {j0[s] = jm[s][i];
+				}else if(i == 1) {j1[s] = jm[s][i];
+				}else if(i == 2) {j2[s] = jm[s][i];
+				}else if(i == 3) {j3[s] = jm[s][i];
+				}else if(i == 4) {j4[s] = jm[s][i];
+				}else if(i == 5) {j5[s] = jm[s][i];
+				}else if(i == 6) {j6[s] = jm[s][i];
+				}else if(i == 7) {j7[s] = jm[s][i];
+				}else if(i == 8) {j8[s] = jm[s][i];	
+				}else if(i == 9) {j9[s] = jm[s][i];
+				}else if(i == 10){j10[s] = jm[s][i];}
+			}
 			if(i == 0) {
 				e[i] = new Equipo(nombre,estadio,fundacion,j0,pGanados,pPerdidos,pEmpatados, puntos);
 			}else if(i == 1) {
@@ -69,49 +86,43 @@ public class Generator {
 				e[i] = new Equipo(nombre,estadio,fundacion,j8,pGanados,pPerdidos,pEmpatados, puntos);
 			}else if(i == 9) {
 				e[i] = new Equipo(nombre,estadio,fundacion,j9,pGanados,pPerdidos,pEmpatados, puntos);
-			}else if(i == 10) {
+			}else if(i == 10){
 				e[i] = new Equipo(nombre,estadio,fundacion,j10,pGanados,pPerdidos,pEmpatados, puntos);
-			}else if(i == 11) {
-				e[i] = new Equipo(nombre,estadio,fundacion,j11,pGanados,pPerdidos,pEmpatados, puntos);
-			}else if(i == 12) {
-				e[i] = new Equipo(nombre,estadio,fundacion,j12,pGanados,pPerdidos,pEmpatados, puntos);
-			}else if(i == 13) {
-				e[i] = new Equipo(nombre,estadio,fundacion,j13,pGanados,pPerdidos,pEmpatados, puntos);
-			}else if(i == 14) {
-				e[i] = new Equipo(nombre,estadio,fundacion,j14,pGanados,pPerdidos,pEmpatados, puntos);
 			}
-			
+
+			//e[i] = new Equipo(nombre,estadio,fundacion,jugadores,pGanados,pPerdidos,pEmpatados, puntos);
 		}
 		return e;
+		
 	}
-	/**
-	 * Pre:
-	 * Post: Metodo generador de listas de 11 jugadores
-	 */
-	public static Jugador[] genPlayer(int numEqu, int numE) {
-		Jugador[] j = new Jugador[11]; 
+	
+	public static Jugador[][] genPlayer(int numEqu, int numE) {
+		int numJ = 11;
+		Jugador[][] j = new Jugador[numJ][numE]; 
 		String nombre = "";
 		int dorsal = 0;
 		int goles = 0;
 		int tarjRoj = 0;
 		int tarjAma = 0;
-		for(int i = 0; i < j.length; i++) {
-			System.out.println(i);
-			nombre = genNomAp() + " " + genNomAp()+" "+ genNomAp();
-			String dor = Integer.toString(numEqu) + Integer.toString(i);
-			int dorI = Integer.parseInt(dor);
-			dorsal = dorI;
-			// Puse 805 ya que es la media de goles de cada jugador a lo largo de su historia
-			goles = (int) Math.round(Math.random()*805); 
-			// Puse 138 ya que es el maximo historico de un jugador x 3
-			tarjRoj = (int) Math.round(Math.random()*138);
-			// Puse 561 ya que es el maximo historico de un jugador x 3
-			tarjAma = (int) Math.round(Math.random()*561);
-			j[i] = new Jugador(nombre,dorsal,goles,tarjRoj,tarjAma);
-			
+		for(int i = 0 ; i <j.length; i++) {
+			for(int s = 0; s< j[i].length; s++) {
+				nombre = genNomAp() + " " + genNomAp()+" "+ genNomAp();
+				String dor = Integer.toString(numEqu) + Integer.toString(i);
+				int dorI = Integer.parseInt(dor);
+				dorsal = dorI;
+				// Puse 805 ya que es la media de goles de cada jugador a lo largo de su historia
+				goles = (int) Math.round(Math.random()*805); 
+				// Puse 138 ya que es el maximo historico de un jugador x 3
+				tarjRoj = (int) Math.round(Math.random()*138);
+				// Puse 561 ya que es el maximo historico de un jugador x 3
+				tarjAma = (int) Math.round(Math.random()*561);
+				//Paquete 2D de jugadores cada fila pertenece a un equipo
+				j[i][s] = new Jugador(nombre,dorsal,goles,tarjRoj,tarjAma);
+			}
 		}
 		return j;
-	}
+		}
+		
 	
 	
 	public static String genNomAp() {

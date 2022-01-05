@@ -4,10 +4,12 @@ import java.util.Scanner;
 public class Inicio {
 
 	public static void main(String[] arg) {
-		
-		
-		// si desea ver las tablas de datos que se usan poner a true
-		boolean cargas = false;
+		/*--------------------
+		 * CONFIGURACION
+		 * -------------------
+		 */
+		boolean cargas = false; // si desea ver las tablas de datos que se usan poner a true
+		//--------------------
 		
 		Scanner sc = new Scanner(System.in);
 		//Utiles.genPlayer();
@@ -15,13 +17,13 @@ public class Inicio {
 		System.out.println("Iniciando genracion de datos...");
 		Liga[] l = Generator.genLiga();
 		
-		Organizador.goleadores(l, false);// Gleadores
-		//Organizador.clasificacion(l, cargas); // mostrador de tablas de puntuaje
+
 		System.out.println("Datos generados");
 		System.out.println("-------------------------------------");
 		System.out.println("         PROGRAMA DE GESTION         ");
 		System.out.println("-------------------------------------");
 		// Estos menus son numericos no funcionaran si se introducen otros caracteres
+		String menu99;
 		while(true) {
 			System.out.println("---    MENU DE PRINCIPAL    ---");
 			System.out.println("-> 1 - Ayuda \n"
@@ -34,7 +36,7 @@ public class Inicio {
 				help();
 				System.out.println("Introduce cualquier valor para salir");
 				sc.nextLine();
-				String menu99 = sc.nextLine();
+				menu99 = sc.nextLine();
 				limpiar();
 			}else if(menu1 == 2){
 				System.out.println("Cargando.....");
@@ -42,8 +44,9 @@ public class Inicio {
 				Show.all(l);
 				System.out.println("-----------------------------");
 			}else if(menu1 == 3) {
+				limpiar();
 				while(true) {
-					limpiar();
+					System.out.println("------------------------------------------ \n");
 					System.out.println("---    MENU DE GESTION    ---");
 					System.out.println("---> 1 Visualizar clasificación ordenada por puntos");
 					System.out.println("---> 2 Visualizar los 5 máximos goleadores");
@@ -54,10 +57,22 @@ public class Inicio {
 					menu2 = sc.nextInt();
 					if(menu2 == 1) {
 						Show.equipos(Organizador.clasificacion(l, cargas));
+						System.out.println("\n Introduce cualquier valor para salir");
+						sc.nextLine();
+						menu99 = sc.nextLine();
+						limpiar();
 					}else if(menu2 == 2) {
-						
+						Show.jugadores(Organizador.goleadores(l, cargas), 5);
+						System.out.println("\n Introduce cualquier valor para salir");
+						sc.nextLine();
+						menu99 = sc.nextLine();
+						limpiar();
 					}else if(menu2 == 3) {
-						
+						Show.jugadores(Organizador.expulsiones(l, cargas), 5);
+						System.out.println("\n Introduce cualquier valor para salir");
+						sc.nextLine();
+						menu99 = sc.nextLine();
+						limpiar();
 					}else if(menu2 == 4) {
 						
 					}else if(menu2 == 5) {

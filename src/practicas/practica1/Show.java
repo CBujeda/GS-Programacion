@@ -9,6 +9,18 @@ public class Show {
 		}	
 	}
 	
+	
+	public static void jugadores(Jugador[] j, int max) {
+		System.out.println("    " + "Nombre | Dorsal | Goles | redCards | yellowCards");
+		for(int i = 0; i < max; i++) {
+			System.out.println("    " + j[i].getNombre() + " | " +
+										j[i].getDorsal() + " | " +
+										j[i].getGoles() + " | " +
+										j[i].getRedCards() + " | " +
+										j[i].getYellowCards());
+		}
+	}
+	
 	public static void equipos(Equipo[] e) {
 		for(int i = 0; i < e.length; i++) {
 			System.out.println("--------------------------------\n Equipo " + (i+1) + " : ");

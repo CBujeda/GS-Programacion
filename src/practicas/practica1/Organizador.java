@@ -2,16 +2,13 @@ package practicas.practica1;
 
 public class Organizador {
 	
-	
-	
-	public static Jugador[] goleadores(Liga[] l, boolean cargas) {
+	public static Jugador[] expulsiones(Liga[] l, boolean cargas) {
 		int temp;
 		int size = 5;
-		Jugador[] jg = new Jugador[size];
+		Jugador[] je = new Jugador[size];
 		for(int i = 0; i < l.length; i++) {
 			Equipo[] e = l[i].getClasificacion();
 			Jugador[] ju = new Jugador[(e.length*(e[0].getJugadores().length))];
-			
 			
 			int sumador = 0;
 			for(int j = 0; j < e.length; j++) {	
@@ -24,7 +21,50 @@ public class Organizador {
 				}
 			}
 			
-			// codigo organizador de menor a mayor 
+			//Las tarjetas rojas significan la expulsion del jugador
+			int [] expulsiones = new int[ju.length]; 
+			for(int j = 0; j < ju.length; j++) {
+				expulsiones[j] = ju[j].getRedCards();
+			}
+			expulsiones = ordenInt_reverse(expulsiones);
+			
+			for(int j = 0; j < ju.length; j++) {
+				for(int r = j + 1; r < ju.length; r++) {
+					if(expulsiones[j] == ju[r].getRedCards()) {
+						temp = ju[j].getRedCards();
+						ju[j].setRedCards(ju[r].getRedCards());
+						ju[r].setRedCards(temp);
+					}
+				}
+			}
+			
+			if(cargas == true) {
+				Show.int1D(expulsiones);
+			}
+			
+			je = ju;
+		}
+		return je;
+	}
+	
+	public static Jugador[] goleadores(Liga[] l, boolean cargas) {
+		int temp;
+		int size = 5;
+		Jugador[] jg = new Jugador[size];
+		for(int i = 0; i < l.length; i++) {
+			Equipo[] e = l[i].getClasificacion();
+			Jugador[] ju = new Jugador[(e.length*(e[0].getJugadores().length))];
+			
+			int sumador = 0;
+			for(int j = 0; j < e.length; j++) {	
+				for(int r = 0; r < e[j].getJugadores().length; r++) {
+					Jugador[] tempo = e[j].getJugadores();
+					ju[r + sumador] = tempo[r];
+					if(r == ((e[j].getJugadores().length)-1)) {
+						sumador = sumador + e[j].getJugadores().length;
+					}
+				}
+			}
 			
 			int [] goles = new int[ju.length]; 
 			for(int j = 0; j < ju.length; j++) {
@@ -41,19 +81,15 @@ public class Organizador {
 					}
 				}
 			}
+			
 			if(cargas == true) {
 				Show.int1D(goles);
 			}
-			
-			for(int j = 0; j < (size-1); i++) {
-				jg[j] = ju[j];
-			}
+
+			jg = ju;
 		}
 		return jg;
 	}
-	
-
-	
 	
 	public static Equipo[] clasificacion(Liga[] l, boolean cargas) {
 		int temp;

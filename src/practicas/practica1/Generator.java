@@ -101,6 +101,11 @@ public class Generator {
 			String dor = Integer.toString(numEqu) + Integer.toString(i);
 			int dorI = Integer.parseInt(dor);
 			dorsal = dorI;
+			/*
+			 * Nota interesante que he descubierto con algunas pruebas
+			 * El math random se mueve sobre un mismo rango con la misma
+			 * instancia aunque cambie el valor maximo
+			 */
 			// Puse 805 ya que es la media de goles de cada jugador a lo largo de su historia
 			goles = (int) Math.round(Math.random()*805); 
 			// Puse 138 ya que es el maximo historico de un jugador x 3

@@ -74,6 +74,7 @@ public class Inicio {
 						menu99 = sc.nextLine();
 						limpiar();
 					}else if(menu2 == 4) {
+						Organizador.equipoGol(l, cargas);
 						
 					}else if(menu2 == 5) {
 						limpiar();

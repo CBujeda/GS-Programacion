@@ -3,6 +3,8 @@ package practicas.practica1;
 public class Show {
 	
 
+
+	
 	public static void int1D(int[] entero) {
 		for(int i=0;i<entero.length;i++) {
 			System.out.print(entero[i] + " | ");

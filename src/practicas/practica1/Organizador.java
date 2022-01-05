@@ -2,6 +2,42 @@ package practicas.practica1;
 
 public class Organizador {
 	
+	public static void equipoGol(Liga[] l, boolean cargas) {
+		int max = (3+1);
+		Jugador[] j = goleadores(l, cargas);
+		Jugador[] js = new Jugador [max];
+		for(int i = 0; i< (max - 1); i++) {
+			js[i] = j[i];
+		}
+		Equipo[] e = null;
+		for(int i = 0; i < l.length; i++) {
+			e = l[i].getClasificacion();
+		}
+		
+		
+		
+		
+		
+		for(int s = 0; s < js.length; s++) { // Bucle de mejores jugadores 
+			
+			for(int i = 0 ; i < e.length; i++) {// Bucle equipos
+				
+				for(int r = 0; r < e[i].getJugadores().length; r++) {  
+					//System.out.println(s + " | " + i + " | " + r );
+					Jugador[] jr = e[i].getJugadores();
+					if(js[s] == jr[r]) {
+						System.out.println("Equipo: " + e[i].getNombre() + "Puntos: "
+								+ "" + e[i].getPuntos());
+						System.out.println("       ---> Jugador: "+ jr[r].getNombre() + "Goles: "
+								+ "" + jr[r].getGoles());
+						
+					}
+					
+				}
+			}
+		}
+	}
+	
 	public static Jugador[] expulsiones(Liga[] l, boolean cargas) {
 		int temp;
 		int size = 5;
@@ -101,7 +137,7 @@ public class Organizador {
 			for(int j = 0; j < e.length; j++) {
 				puntos[j] = e[j].getPuntos();
 			}
-			puntos = ordenInt(puntos);
+			puntos = ordenInt_reverse(puntos);
 			
 			for(int j = 0; j < e.length; j++) {
 				for(int r = j + 1; r < e.length; r++) {

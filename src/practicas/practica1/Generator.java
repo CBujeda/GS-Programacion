@@ -96,7 +96,7 @@ public class Generator {
 		int tarjRoj = 0;
 		int tarjAma = 0;
 		for(int i = 0; i < j.length; i++) {
-			System.out.println(i);
+
 			nombre = genNomAp() + " " + genNomAp()+" "+ genNomAp();
 			String dor = Integer.toString(numEqu) + Integer.toString(i);
 			int dorI = Integer.parseInt(dor);

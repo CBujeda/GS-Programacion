@@ -1,4 +1,8 @@
-package practicas.practica1;
+package practicas.practica1.generadores_Older;
+
+import practicas.practica1.Equipo;
+import practicas.practica1.Jugador;
+import practicas.practica1.Liga;
 
 public class Generator_beta {
 

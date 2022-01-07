@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 public class Inicio {
 
+	/**
+	 * Pre:
+	 * Post: Metodo main inicia programa y genera el menu.
+	 */
 	public static void main(String[] arg) {
 		/*--------------------
 		 * CONFIGURACION
@@ -12,12 +16,9 @@ public class Inicio {
 		//--------------------
 		
 		Scanner sc = new Scanner(System.in);
-		//Utiles.genPlayer();
 		System.out.println("Iniciando programa.....");
 		System.out.println("Iniciando genracion de datos...");
 		Liga[] l = Generator.genLiga();
-		
-
 		System.out.println("Datos generados");
 		System.out.println("-------------------------------------");
 		System.out.println("         PROGRAMA DE GESTION         ");
@@ -45,7 +46,7 @@ public class Inicio {
 				System.out.println("-----------------------------");
 			}else if(menu1 == 3) {
 				limpiar();
-				while(true) {
+				while(true) { // Entramos en el menu de gestion
 					System.out.println("------------------------------------------ \n");
 					System.out.println("---    MENU DE GESTION    ---");
 					System.out.println("---> 1 Visualizar clasificación ordenada por puntos");
@@ -82,11 +83,6 @@ public class Inicio {
 					}else {
 						System.out.println("Solo puedes usar las siguientes opciones:");
 					}
-					
-					
-					
-					
-					
 				}
 			}else if(menu1 == 4) {
 				System.out.println("Cerrando programa....");
@@ -94,18 +90,14 @@ public class Inicio {
 			}else {
 				limpiar();
 				System.out.println("Debe usar una de las siguientes opciones:");
-			}
-			
-			
+			}	
 		}	
-		//System.out.println(Generator.genNombre());
 	}
 
 	/**
 	 * Pre:
 	 * Post: Este metodo muestra por consola la ayuda del programa
 	 */
-	
 	public static void help() {
 		limpiar();
 		System.out.println("Bienvenid@ a la seccion de ayuda");
@@ -115,6 +107,13 @@ public class Inicio {
 				 + "-> 3 - Menu de gestion = Muestra el Menu de gestion \n"
 				 + "-> 4 - Salir = Finaliza el programa");
 		System.out.println("Menu de Gestion");
+		System.out.println("---> 1 Visualizar clasificación ordenada por puntos");
+		System.out.println("---> 2 Visualizar los 5 máximos goleadores");
+		System.out.println("---> 3 Visualizar los 5 jugadores con más expulsiones");
+		System.out.println("---> 4 Obtener los 3 equipos más goleadores");
+		System.out.println("---> 5 Volver al menu principal");
+		System.out.println("");
+		System.out.println("------ Programa java creado por Clara Bujeda Muñoz 07/01/2022");
 
 		
 	}

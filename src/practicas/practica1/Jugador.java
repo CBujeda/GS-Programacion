@@ -14,6 +14,10 @@ public class Jugador {
 	 */
 	//public Jugador() {}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo constructor Jugador
+	 */
 	public Jugador(String nombre, int dorsal, int goles, int redCards, int yellowCards) {
 		this.nombre = nombre;
 		this.dorsal = dorsal;

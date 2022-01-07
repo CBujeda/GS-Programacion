@@ -1,6 +1,12 @@
 package practicas.practica1;
 
 public class Generator {
+	
+	
+	/**
+	 * Pre:
+	 * Post: Genera una lista la cual contiene un objeto de tipo liga
+	 */
 	public static Liga[] genLiga() {
 		int numL = 1;
 		Liga[] l = new Liga[numL];
@@ -17,6 +23,10 @@ public class Generator {
 		
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Genera una lista 15 objetos de tipo Equipo
+	 */
 	public static Equipo[] genEquipo() {
 		Equipo[] e = new Equipo[15];
 		String nombre = "";
@@ -84,9 +94,10 @@ public class Generator {
 		}
 		return e;
 	}
+	
 	/**
 	 * Pre:
-	 * Post: Metodo generador de listas de 11 jugadores
+	 * Post: Metodo generador de listas de 11 objetos de tipo jugadores
 	 */
 	public static Jugador[] genPlayer(int numEqu, int numE) {
 		Jugador[] j = new Jugador[11]; 
@@ -119,6 +130,10 @@ public class Generator {
 	}
 	
 	
+	/**
+	 * Pre:
+	 * Post: Genera una palabra con caracteres aleatorios
+	 */
 	public static String genNomAp() {
 		//Generador apellidos
 		String[] abc = new String[abc().length];
@@ -132,7 +147,11 @@ public class Generator {
 	}
 	
 	
-	// debuelve un caracter minuscula como mayuscula
+	/**
+	 * Pre:
+	 * Post: Debuleve un caracter en mayuscula que
+	 * 		 se le paso en minuscula
+	 */
 	public static String mayus(String my) {
 		if(my.equalsIgnoreCase("a")) {my = "A";
 		}else if(my.equalsIgnoreCase("b")) {my = "B";
@@ -163,6 +182,11 @@ public class Generator {
 		return my;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Contiene una tabla con el abecedario
+	 * 		 la cual esta la devuelve al llamar al metodo.
+	 */
 	public static String[] abc() {
 		String[] abc = new String[] {"a","b","c","d","e","f","g",
 				"h","i","j","k","l","m","n","o","p","q","r","s",

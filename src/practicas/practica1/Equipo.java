@@ -10,6 +10,10 @@ public class Equipo {
 	private int partidosEmpatados;
 	private int puntos;
 
+	/**
+	 * Pre:
+	 * Post: Metodo constructor de equipo
+	 */
 	public Equipo(String nombre, String estadio, int fundacion, Jugador[] jugador, int partidosGanados, int partidosPerdidos, int partidosEmpatados, int puntos) {
 		this.nombre = nombre;
 		this.estadio = estadio;

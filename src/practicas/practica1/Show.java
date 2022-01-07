@@ -4,14 +4,20 @@ public class Show {
 	
 
 
-	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra una tabla 1D de enteros
+	 */
 	public static void int1D(int[] entero) {
 		for(int i=0;i<entero.length;i++) {
 			System.out.print(entero[i] + " | ");
 		}	
 	}
 	
-	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra una lista de jugadores
+	 */
 	public static void jugadores(Jugador[] j, int max) {
 		System.out.println("    " + "Nombre | Dorsal | Goles | redCards | yellowCards");
 		for(int i = 0; i < max; i++) {
@@ -23,6 +29,10 @@ public class Show {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra una tabla de equipos
+	 */
 	public static void equipos(Equipo[] e) {
 		for(int i = 0; i < e.length; i++) {
 			System.out.println("--------------------------------\n Equipo " + (i+1) + " : ");
@@ -39,7 +49,10 @@ public class Show {
 		
 	}
 	
-
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra una tabla de ligas.
+	 */
 	public static void all(Liga[] l) {
 	System.out.println("---Ligas---");
 		for(int i = 0; i < l.length; i++) {

@@ -5,6 +5,10 @@ public class Liga {
 	private String nombre;
 	private Equipo[] clasificacion;
 
+	/**
+	 * Pre:
+	 * Post: Metodo constructor de Liga
+	 */
 	public Liga(String nombre, Equipo[] clasificacion) {
 		this.nombre = nombre;
 		this.clasificacion = clasificacion;

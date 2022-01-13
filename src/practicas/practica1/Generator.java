@@ -2,7 +2,6 @@ package practicas.practica1;
 
 public class Generator {
 	
-	
 	/**
 	 * Pre:
 	 * Post: Genera una lista la cual contiene un objeto de tipo liga

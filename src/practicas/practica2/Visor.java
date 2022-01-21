@@ -1,12 +1,11 @@
 package practicas.practica2;
-
 import java.util.ArrayList;
 
 public class Visor {
 
-	public static void array (Boolean [][] t) {
-		
-		System.out.print("\n_");
+	public static void array (Boolean [][] t, int gen) {
+		System.out.println("Generacion: " + gen);
+		System.out.print("_");
 		for(int i = 0; i < (t[0].length); i++) {
 			System.out.print("___");
 		}

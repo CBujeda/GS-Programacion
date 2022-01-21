@@ -1,9 +1,14 @@
 package practicas.practica2;
-import java.util.ArrayList;
 
 public class Visor {
 
-	public static void array (Boolean [][] t, int gen) {
+	public static void limpiar(int max) {
+		for(int i = 0; i < max ; i++) {
+			System.out.println();
+		}
+	}
+	
+	public static void array (boolean [][] t, int gen) {
 		System.out.println("Generacion: " + gen);
 		System.out.print("_");
 		for(int i = 0; i < (t[0].length); i++) {

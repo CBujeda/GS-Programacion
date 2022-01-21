@@ -70,55 +70,56 @@ public class Inicio {
 									compr[5] = false;
 									// Lados
 									if((j-1) < 0) {   // comprobador arriba						
-										compr[8] = false; // Lado 8
-										compr[7] = false; // Esquina 7
-										compr[9] = false; // Esquina 9
+										compr[7] = false; // Lado 8
+										compr[6] = false; // Esquina 7
+										compr[8] = false; // Esquina 9
 									}
 									if(j + 1 > t1.length) { //comprobador abajo 
-										compr[2] = false; // Lado 2
-										compr[1] = false; // Esquina 1
-										compr[3] = false; // Esquina 3
+										compr[1] = false; // Lado 2
+										compr[0] = false; // Esquina 1
+										compr[2] = false; // Esquina 3
 									}
 									if(r-1 < 0) { //comprobador izqierda
-										compr[4] = false; // Lado 4
-										compr[7] = false; // Esqina 7
-										compr[1] = false; // Esqina 1
+										compr[3] = false; // Lado 4
+										compr[6] = false; // Esqina 7
+										compr[0] = false; // Esqina 1
 									}
 									if(r+1 > t1[j].length) {  //comprobador derecha
-										compr[6] = false; // Lado 6
-										compr[9] = false; // Esquina 9 
-										compr[3] = false; // Esquina 3
+										compr[5] = false; // Lado 6
+										compr[8] = false; // Esquina 9 
+										compr[2] = false; // Esquina 3
 									} 
 									
 									for(int d = 0; d < compr.length; d++) {
 										if(compr[d] == true) {
 											if(d == 1){
-												if(t1[j + 1][r - 1] == true) { compr[1] = true;
-												} else { compr[1] = false; }
+												if(t1[j + 1][r - 1] == true) { compr[0] = true;
+												} else { compr[0] = false; }
 											}else if(d == 2){
-												if(t1[j + 1][r] == true) { compr[2] = true;
-													} else { compr[2] = false; }
+												if(t1[j + 1][r] == true) { compr[1] = true;
+													} else { compr[1] = false; }
 											}if(d == 3){
-												if(t1[j + 1][r + 1] == true) { compr[3] = true;
-												} else { compr[3] = false; }
+												if(t1[j + 1][r + 1] == true) { compr[2] = true;
+												} else { compr[2] = false; }
 											}if(d == 4){
-												if(t1[j][r - 1] == true) { compr[4] = true;
-												} else { compr[4] = false; }
+												if(t1[j][r - 1] == true) { compr[3] = true;
+												} else { compr[3] = false; }
 											}if(d == 6){
-												if(t1[j][r + 1] == true) { compr[6] = true;
-												} else { compr[6] = false; }
+												if(t1[j][r + 1] == true) { compr[5] = true;
+												} else { compr[5] = false; }
 											}if(d == 7){
-												
+												if(t1[j - 1][r - 1] == true) { compr[6] = true;
+												} else { compr[6] = false; }
 											}if(d == 8){
-												
+												if(t1[j - 1][r] == true) { compr[7] = true;
+												} else { compr[7] = false; }
 											}if(d == 9){
+												if(t1[j - 1][r + 1] == true) { compr[8] = true;
+												} else { compr[8] = false; }
 												
 											}
 										}
 									}
-									
-									
-									
 								}	
 							}
 						}

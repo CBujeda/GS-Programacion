@@ -62,12 +62,11 @@ public class Inicio {
 						//Visor.array(genTable(x,y), 1);
 						for(int i = 0; i< gens;i++) {
 							for(int j = 0; j < t1.length; j++) {
-								for(int r = 0; r < t1[j].length; r++) {
-									
+								for(int r = 0; r < t1[j].length; r++) {			
 									for(int d = 0; d < compr.length; d++) {
 										compr[d] = true;
 									}
-									compr[5] = false;
+									compr[4] = false; // Medio 5
 									// Lados
 									if((j-1) < 0) {   // comprobador arriba						
 										compr[7] = false; // Lado 8
@@ -84,42 +83,50 @@ public class Inicio {
 										compr[6] = false; // Esqina 7
 										compr[0] = false; // Esqina 1
 									}
-									if(r+1 > t1[j].length) {  //comprobador derecha
+									if(r+1 > t1.length) {  //comprobador derecha
 										compr[5] = false; // Lado 6
 										compr[8] = false; // Esquina 9 
 										compr[2] = false; // Esquina 3
 									} 
 									
-									for(int d = 0; d < compr.length; d++) {
-										if(compr[d] == true) {
-											if(d == 1){
-												if(t1[j + 1][r - 1] == true) { compr[0] = true;
-												} else { compr[0] = false; }
-											}else if(d == 2){
-												if(t1[j + 1][r] == true) { compr[1] = true;
-													} else { compr[1] = false; }
-											}if(d == 3){
-												if(t1[j + 1][r + 1] == true) { compr[2] = true;
-												} else { compr[2] = false; }
-											}if(d == 4){
-												if(t1[j][r - 1] == true) { compr[3] = true;
-												} else { compr[3] = false; }
-											}if(d == 6){
-												if(t1[j][r + 1] == true) { compr[5] = true;
-												} else { compr[5] = false; }
-											}if(d == 7){
-												if(t1[j - 1][r - 1] == true) { compr[6] = true;
-												} else { compr[6] = false; }
-											}if(d == 8){
-												if(t1[j - 1][r] == true) { compr[7] = true;
-												} else { compr[7] = false; }
-											}if(d == 9){
-												if(t1[j - 1][r + 1] == true) { compr[8] = true;
-												} else { compr[8] = false; }
-												
-											}
-										}
+										System.out.println(compr[6] + "|" + compr[7] + "|" + compr[8]);
+									    System.out.println(compr[3] + "|" + compr[4] + "|" + compr[5]);
+										System.out.println(compr[0] + "|" + compr[1] + "|" + compr[2]);
+										System.out.println("-----------");
+									//Comprobaciones de automatas	
+									if(compr[0] == true) { // comprobacion celda 1
+										if(t1[j + 1][r - 1] == true) { compr[0] = true;
+										} else { compr[0] = false; }
 									}
+									if(compr[1] == true) {	// comprobacion celda 2
+										if(t1[j + 1][r] == true) { compr[1] = true;
+										} else { compr[1] = false; }
+									}
+									if(compr[2] == true) { // comprobacion celda 3
+										if(t1[j + 1][r + 1] == true) { compr[2] = true;
+										} else { compr[2] = false; }
+									}
+									if(compr[3] == true) { // comprobacion celda 4
+										if(t1[j][r - 1] == true) { compr[3] = true;
+										} else { compr[3] = false; }
+									}	
+									if(compr[5] == true) { // comprobacion celda 6
+										if(t1[j][r + 1] == true) { compr[5] = true;
+										} else { compr[5] = false; }
+									}	
+									if(compr[6] == true) { // comprobacion celda 7
+										if(t1[j - 1][r - 1] == true) { compr[6] = true;
+										} else { compr[6] = false; }
+									}
+									if(compr[7] == true) { // comprobacion celda 8
+										if(t1[j - 1][r] == true) { compr[7] = true;
+										} else { compr[7] = false; }
+									}
+									if(compr[8] == true) { // comprobacion celda 9
+										if(t1[j - 1][r + 1] == true) { compr[8] = true;
+										} else { compr[8] = false; }
+									}
+									
 								}	
 							}
 						}

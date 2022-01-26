@@ -4,6 +4,16 @@ import java.io.FileNotFoundException;
 import java.util.Formatter;
 
 public class Ej1 {
+	
+	public static boolean isInteger(String dato) {
+        try {
+        	Double.parseDouble(dato);
+        	return true;
+        }catch(NumberFormatException e) {
+            return false;
+        }
+	}
+	
 	public static void main(String[] arg) {
 		Scanner sc = new Scanner(System.in);
 		//System.out.println("Ubicacion del archivo");
@@ -20,6 +30,11 @@ public class Ej1 {
 				//eStr = sc.next();
 				if(!eStr.contains(" ")) {
 					if(!eStr.equalsIgnoreCase("fin")) {
+						if(isInteger(eStr)) {
+							System.out.println("El numero ( " + eStr + " ) se ha escrito en el fichero");
+						}else {
+							System.out.println("El texto ( " + eStr + " ) se ha escrito en el fichero");
+						}
 						f.format(eStr + "\n");
 					}else {
 						f.close();

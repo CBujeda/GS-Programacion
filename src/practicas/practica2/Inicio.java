@@ -59,10 +59,17 @@ public class Inicio {
 						boolean[][] t1 = genTable(x,y);
 						boolean[][] t2 = t1;
 						//Visor.array(genTable(x,y), 1);
-						Visor.array(t1, gens);
+						//Visor.array(t1, gens);
 						for(int i = 0; i< gens;i++) {
+							t1 = t2;
+							Visor.array(t1, i);
+							
 							for(int j = 0; j < t1.length; j++) {
-								for(int r = 0; r < t1[j].length; r++) {			
+								for(int r = 0; r < t1[j].length; r++) {
+									// Dicho for evita errores de pase
+									for(int z = 0; z < compr.length; z++) {
+										compr[z] = false;
+									}
 									// Validador de celdas y automatas
 									if(Validador.esCeldaValida(j + 1, r - 1, t1)) { // Celda 1
 										if(t1[j + 1][r - 1] == true) {compr[0] = true;
@@ -104,16 +111,27 @@ public class Inicio {
 										} else { compr[7] = false;}
 									} else {compr[7] = false;}
 									
-									
-					
-									
+									//contador de automatas:
+									int totAut = 0;
+									for(int z = 0; z < compr.length; z++) {
+										if(compr[z] == true) {totAut++;}
+									}
+									//Condiciones de existencia de automata
+									if(totAut < 2) {
+										t2[j][r] = false;
+									}else if(totAut >= 2 && totAut <= 3) {
+										t2[j][r] = true;
+									}else if(totAut > 3) {
+										t2[j][r] = false;
+									}
 
-								
-								
-							
-									
 								}	
 							}
+							
+							
+							
+							
+							
 						}
 					}else if (mode == true){
 						System.out.println("Vienvenid@ Al modo especial");

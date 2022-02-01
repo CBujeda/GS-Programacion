@@ -32,7 +32,7 @@ public class Inicio {
 		int eInt = 0;
 		//--------INTRODUCCION DE DATOS-------	
 		while(true) {
-			boolean[] compr = new boolean[9];
+			boolean[] compr = new boolean[8];
 			eStr = "";
 			eInt = 0;
 			int x = 0;
@@ -60,72 +60,58 @@ public class Inicio {
 						boolean[][] t1 = genTable(x,y);
 						boolean[][] t2 = t1;
 						//Visor.array(genTable(x,y), 1);
+						Visor.array(t1, gens);
 						for(int i = 0; i< gens;i++) {
 							for(int j = 0; j < t1.length; j++) {
 								for(int r = 0; r < t1[j].length; r++) {			
-									for(int d = 0; d < compr.length; d++) {
-										compr[d] = true;
-									}
-									compr[4] = false; // Medio 5
-									// Lados
-									if((j-1) < 0) {   // comprobador arriba						
-										compr[7] = false; // Lado 8
-										compr[6] = false; // Esquina 7
-										compr[8] = false; // Esquina 9
-									}
-									if(j + 1 > t1.length) { //comprobador abajo 
-										compr[1] = false; // Lado 2
-										compr[0] = false; // Esquina 1
-										compr[2] = false; // Esquina 3
-									}
-									if(r-1 < 0) { //comprobador izqierda
-										compr[3] = false; // Lado 4
-										compr[6] = false; // Esqina 7
-										compr[0] = false; // Esqina 1
-									}
-									if(r+1 > t1.length) {  //comprobador derecha
-										compr[5] = false; // Lado 6
-										compr[8] = false; // Esquina 9 
-										compr[2] = false; // Esquina 3
-									} 
 									
-										System.out.println(compr[6] + "|" + compr[7] + "|" + compr[8]);
-									    System.out.println(compr[3] + "|" + compr[4] + "|" + compr[5]);
-										System.out.println(compr[0] + "|" + compr[1] + "|" + compr[2]);
-										System.out.println("-----------");
-									//Comprobaciones de automatas	
-									if(compr[0] == true) { // comprobacion celda 1
-										if(t1[j + 1][r - 1] == true) { compr[0] = true;
-										} else { compr[0] = false; }
-									}
-									if(compr[1] == true) {	// comprobacion celda 2
-										if(t1[j + 1][r] == true) { compr[1] = true;
+										if(Validador.esCeldaValida(j + 1, r - 1, t1)) { // Celda 1
+											if(t1[j + 1][r - 1] == true) {compr[0] = true;
+											} else { compr[0] = false;}
+										} else { compr[0] = false;}
+
+										if(Validador.esCeldaValida(j + 1, r, t1)) { // Cleda 2
+											if(t1[j + 1][r] == true) {compr[1] = true;
+											} else { compr[1] = false;}	
 										} else { compr[1] = false; }
-									}
-									if(compr[2] == true) { // comprobacion celda 3
-										if(t1[j + 1][r + 1] == true) { compr[2] = true;
-										} else { compr[2] = false; }
-									}
-									if(compr[3] == true) { // comprobacion celda 4
-										if(t1[j][r - 1] == true) { compr[3] = true;
+										
+										if(Validador.esCeldaValida(j + 1, r + 1, t1)) { // celda 3
+											if(t1[j + 1][r + 1] == true) {compr[2] = true;
+											} else { compr [2] = false;}
+										} else { compr[2] = false;}
+										
+										if(Validador.esCeldaValida(j, r - 1 , t1)) { // celda 4
+											if(t1[j][r - 1] == true) {compr[3] = true;
+											} else { compr[3] = false; }
 										} else { compr[3] = false; }
-									}	
-									if(compr[5] == true) { // comprobacion celda 6
-										if(t1[j][r + 1] == true) { compr[5] = true;
-										} else { compr[5] = false; }
-									}	
-									if(compr[6] == true) { // comprobacion celda 7
-										if(t1[j - 1][r - 1] == true) { compr[6] = true;
-										} else { compr[6] = false; }
-									}
-									if(compr[7] == true) { // comprobacion celda 8
-										if(t1[j - 1][r] == true) { compr[7] = true;
-										} else { compr[7] = false; }
-									}
-									if(compr[8] == true) { // comprobacion celda 9
-										if(t1[j - 1][r + 1] == true) { compr[8] = true;
-										} else { compr[8] = false; }
-									}
+
+										if(Validador.esCeldaValida(j, r + 1, t1)) { // celda 6
+											if(t1[j][r + 1] == true) {compr[4] = true;
+											} else { compr[4] = false;}
+										} else { compr[4] = false;}
+										
+										if(Validador.esCeldaValida(j - 1, r - 1, t1)) { // celda 7
+											if(t1[j - 1][r - 1] == true) {compr[5] = true;
+											} else { compr[5] = false;}
+										} else { compr[5] = false;}
+
+										if(Validador.esCeldaValida(j - 1, r, t1)) {
+											if(t1[j - 1][r] == true) {compr[6] = true;
+											} else { compr[6] = false;}
+										} else { compr[6] = false;}
+
+										if(Validador.esCeldaValida(j + 1, r + 1, t1)) {
+											if(t1[j + 1][r + 1] == true) {compr[7] = true;
+											} else { compr[7] = false;}
+										} else {compr[7] = false;}
+										
+		
+						
+										
+
+									
+									
+								
 									
 								}	
 							}

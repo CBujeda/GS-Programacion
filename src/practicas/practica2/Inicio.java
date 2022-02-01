@@ -55,7 +55,6 @@ public class Inicio {
 			if(x > 0 && y > 0) {
 				if(gens > 0) {
 					if(mode == false) {
-						
 						System.out.println("Generando primera generacion");
 						boolean[][] t1 = genTable(x,y);
 						boolean[][] t2 = t1;
@@ -64,54 +63,54 @@ public class Inicio {
 						for(int i = 0; i< gens;i++) {
 							for(int j = 0; j < t1.length; j++) {
 								for(int r = 0; r < t1[j].length; r++) {			
-									
-										if(Validador.esCeldaValida(j + 1, r - 1, t1)) { // Celda 1
-											if(t1[j + 1][r - 1] == true) {compr[0] = true;
-											} else { compr[0] = false;}
+									// Validador de celdas y automatas
+									if(Validador.esCeldaValida(j + 1, r - 1, t1)) { // Celda 1
+										if(t1[j + 1][r - 1] == true) {compr[0] = true;
 										} else { compr[0] = false;}
+									} else { compr[0] = false;}
 
-										if(Validador.esCeldaValida(j + 1, r, t1)) { // Cleda 2
-											if(t1[j + 1][r] == true) {compr[1] = true;
-											} else { compr[1] = false;}	
-										} else { compr[1] = false; }
-										
-										if(Validador.esCeldaValida(j + 1, r + 1, t1)) { // celda 3
-											if(t1[j + 1][r + 1] == true) {compr[2] = true;
-											} else { compr [2] = false;}
-										} else { compr[2] = false;}
-										
-										if(Validador.esCeldaValida(j, r - 1 , t1)) { // celda 4
-											if(t1[j][r - 1] == true) {compr[3] = true;
-											} else { compr[3] = false; }
+									if(Validador.esCeldaValida(j + 1, r, t1)) { // Cleda 2
+										if(t1[j + 1][r] == true) {compr[1] = true;
+										} else { compr[1] = false;}	
+									} else { compr[1] = false; }
+									
+									if(Validador.esCeldaValida(j + 1, r + 1, t1)) { // celda 3
+										if(t1[j + 1][r + 1] == true) {compr[2] = true;
+										} else { compr [2] = false;}
+									} else { compr[2] = false;}
+									
+									if(Validador.esCeldaValida(j, r - 1 , t1)) { // celda 4
+										if(t1[j][r - 1] == true) {compr[3] = true;
 										} else { compr[3] = false; }
+									} else { compr[3] = false; }
 
-										if(Validador.esCeldaValida(j, r + 1, t1)) { // celda 6
-											if(t1[j][r + 1] == true) {compr[4] = true;
-											} else { compr[4] = false;}
+									if(Validador.esCeldaValida(j, r + 1, t1)) { // celda 6
+										if(t1[j][r + 1] == true) {compr[4] = true;
 										} else { compr[4] = false;}
-										
-										if(Validador.esCeldaValida(j - 1, r - 1, t1)) { // celda 7
-											if(t1[j - 1][r - 1] == true) {compr[5] = true;
-											} else { compr[5] = false;}
+									} else { compr[4] = false;}
+									
+									if(Validador.esCeldaValida(j - 1, r - 1, t1)) { // celda 7
+										if(t1[j - 1][r - 1] == true) {compr[5] = true;
 										} else { compr[5] = false;}
+									} else { compr[5] = false;}
 
-										if(Validador.esCeldaValida(j - 1, r, t1)) {
-											if(t1[j - 1][r] == true) {compr[6] = true;
-											} else { compr[6] = false;}
+									if(Validador.esCeldaValida(j - 1, r, t1)) { // celda 8
+										if(t1[j - 1][r] == true) {compr[6] = true;
 										} else { compr[6] = false;}
+									} else { compr[6] = false;}
 
-										if(Validador.esCeldaValida(j + 1, r + 1, t1)) {
-											if(t1[j + 1][r + 1] == true) {compr[7] = true;
-											} else { compr[7] = false;}
-										} else {compr[7] = false;}
-										
-		
-						
-										
-
+									if(Validador.esCeldaValida(j + 1, r + 1, t1)) { // celda 9
+										if(t1[j + 1][r + 1] == true) {compr[7] = true;
+										} else { compr[7] = false;}
+									} else {compr[7] = false;}
 									
 									
+					
+									
+
 								
+								
+							
 									
 								}	
 							}

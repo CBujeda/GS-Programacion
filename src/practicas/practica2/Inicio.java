@@ -38,11 +38,7 @@ public class Inicio {
 				String eStr = "";
 				int eInt = 0;
 		//------------CONFIGURACION-----------
-		boolean mode = false; // false modo pruebas normal
-		       //mode = true;  // true modo pruebas especial
-		// Si prueba = 0 (Prueba de Cuadrado)
-		// Si prueba = 1 (Prueba de Tres)
-		// Si prueba = 2 (Prueba de doble cuadrado)
+		boolean mode = false; 
 		int prueba = 0; 
 		while(true) {
 			System.out.println("Desea usar el modo de prueba?");
@@ -76,7 +72,6 @@ public class Inicio {
 			}
 		}
 		
-		
 		//--------INTRODUCCION DE DATOS-------	
 		while(true) {
 			boolean[] compr = new boolean[8];
@@ -96,7 +91,6 @@ public class Inicio {
 						if(i == 0) {System.out.println("Introduce el numero de celdas en x");
 						}else if(i == 1) {System.out.println("Introduce el numero de celdas en y");
 						}else if(i == 2) {System.out.println("Numero de generaciones?");}
-						
 						eInt = sc.nextInt();
 						if(eInt >= 0) {
 							if(i == 0) {x = eInt;
@@ -111,13 +105,10 @@ public class Inicio {
 			}
 			if(x > 0 && y > 0) {
 				if(gens > 0) {
-					
-						System.out.println("Generando primera generacion");
-						
+						System.out.println("Generando primera generacion");			
 						boolean[][] t1 = null;
 						if(mode == true) {
 							if(prueba == 0) {
-			
 								 t1 = Generador_Pruebas.celsCuatro();
 							}else if(prueba == 1) {
 								 t1 = Generador_Pruebas.celsTres();
@@ -127,8 +118,7 @@ public class Inicio {
 						} else {
 							 t1 = genTable(x,y); 
 						}
-						
-
+						//Igualo t2 a t1
 						boolean[][] t2 = new boolean[t1.length][t1[0].length];
 						for(int g = 0; g < t1.length; g++) {
 							for(int h = 0; h < t1[g].length; h++) {
@@ -136,6 +126,7 @@ public class Inicio {
 							}
 						}
 						int vivCels = 0;
+						// Bucle de generaciones
 						for(int i = 0; i< gens;i++) {
 							vivCels = 0;
 							// Actualizo t1
@@ -160,11 +151,10 @@ public class Inicio {
 							}
 							
 							
-							
 							// Muestro t1
 							Visor.array(t1, i);
 							
-							
+							// Recorredor de tablas
 							for(int j = 0; j < t1.length; j++) {
 								for(int r = 0; r < t1[j].length; r++) {
 									// Dicho for evita errores de pase
@@ -237,7 +227,8 @@ public class Inicio {
 							}	
 							
 						}// fin for i
-						if(coloniaExtinta = false) {
+						//Muestra supervivientes
+						if(coloniaExtinta == false) {
 							System.out.println("Sobrevivieron " + lista.get(lista.size()).getAutomatas() + " celulas");
 						}
 						

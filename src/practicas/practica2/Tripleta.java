@@ -5,6 +5,11 @@ public class Tripleta {
 	private int gen;
 	private int automatas;
 	private int automatas_anteriores;
+	
+	/**
+	 * Pre:
+	 * Post: Objeto Tripleta el cual almacena las generaciones y los automatas anteriores
+	 */
 	public Tripleta(int gen, int automatas, int automatas_anteriores) {
 		this.gen = gen;
 		this.automatas = automatas;

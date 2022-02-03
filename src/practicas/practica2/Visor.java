@@ -1,13 +1,22 @@
 package practicas.practica2;
 
 public class Visor {
-
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo añade el numero de 
+	 * 		 lineas de se le indican
+	 */
 	public static void limpiar(int max) {
 		for(int i = 0; i < max ; i++) {
 			System.out.println();
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo muestra un array de booleans
+	 */
 	public static void array (boolean [][] t, int gen) {
 		System.out.println("Generacion: " + gen);
 		System.out.print("_");

@@ -2,6 +2,11 @@ package practicas.practica2;
 
 public class Generador_Pruebas {
 
+	/**
+	 * Pre:
+	 * Post: Devuelve una tabla predefinida con 
+	 * 		 forma de cuadrado
+	 */
 	public static boolean[][] celsCuatro() {
 		int x = 4;
 		int y = 4;
@@ -19,6 +24,11 @@ public class Generador_Pruebas {
 		return t;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Devuelve una tabla predefinida con 
+	 * 		 forma de una fila de tres
+	 */
 	public static boolean[][] celsTres() {
 		int x = 5;
 		int y = 5;
@@ -34,6 +44,12 @@ public class Generador_Pruebas {
 		
 		return t;
 	}
+	
+	/**
+	 * Pre:
+	 * Post: Devuelve una tabla predefinida con 
+	 * 		 forma de dos cuadrados
+	 */
 	public static boolean[][] celsDobleCuadrado() {
 		int x = 6;
 		int y = 6;

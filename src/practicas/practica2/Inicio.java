@@ -229,7 +229,7 @@ public class Inicio {
 						}// fin for i
 						//Muestra supervivientes
 						if(coloniaExtinta == false) {
-							System.out.println("Sobrevivieron " + lista.get(lista.size()).getAutomatas() + " celulas");
+							System.out.println("Sobrevivieron " + lista.get(lista.size()-1).getAutomatas() + " celulas");
 						}
 						
 						//Mostrar Tripleta

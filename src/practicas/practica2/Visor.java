@@ -22,6 +22,7 @@ public class Visor {
 					System.out.print(" * ");
 				}else{
 					System.out.print("   ");
+					//System.out.print("   ");
 				}
 			}
 			System.out.println();

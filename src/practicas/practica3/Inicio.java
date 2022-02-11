@@ -3,49 +3,44 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Formatter;
 import java.util.Scanner;
-import practicas.practica3.t1.Inicio1;
-import practicas.practica3.t2.Inicio2;
-import practicas.practica3.t3.Inicio3;
 
 public class Inicio {
+	
+	public static void menu() {
+		System.out.println("--------------------");
+		System.out.println("- 1 = Tarea1");
+		System.out.println("- 2 = Tarea2");
+		System.out.println("- 3 = Tarea3");
+		System.out.println("- 4 = Salir");
+		System.out.println("--------------------");
+	}
+	
+	
 	public static void main(String[] arg) {
 		Scanner sc = new Scanner(System.in);
 		String eStr = "";
 		
-		while(true) {
-		
-			System.out.println("--------------------");
-			System.out.println("- 1 = Tarea1");
-			System.out.println("- 2 = Tarea2");
-			System.out.println("- 3 = Tarea3");
-			System.out.println("- 4 = Salir");
-			System.out.println("--------------------");
-			
-			eStr = sc.nextLine();
-			if(eStr.equalsIgnoreCase("1")) {
-				File f1 = new File("C:\\eclip\\usos-16.csv");
-				File f2 = new File("C:\\eclip\\usos-17.csv");
+		while(true) { 
+			menu(); // Mostramos menu
+			eStr = sc.nextLine(); // solicitamos al usuario una opcion
+			if(eStr.equalsIgnoreCase("1")) { // Tarea 1 -------------------------------------
 				try {
-					Scanner file1 = new Scanner(f1);
-					Scanner file2 = new Scanner(f2);
+					Scanner file1 = new Scanner(new File("C:\\eclip\\usos-16.csv"));
 					Formatter fo1 = new Formatter(new File("C:\\eclip\\pruebas-10.csv"));
-					Formatter fo2 = new Formatter(new File("C:\\eclip\\pruebas-2000.csv"));
 					String temp = "";
 					for(int i = 0; i < 10; i++) {
 						if(file1.hasNextLine()) {
-							fo1.format(file1.nextLine() + "\n");
-						} else {
-							break;
-						}
+							fo1.format(file1.nextLine() + "\n"); // escribimos en el fichero
+						} else { break; }
 					}
 					fo1.close();
 					file1.close();
+					Scanner file2 = new Scanner(new File("C:\\eclip\\usos-17.csv"));
+					Formatter fo2 = new Formatter(new File("C:\\eclip\\pruebas-2000.csv"));
 					for(int i = 0; i < 2000; i++) {
 						if(file2.hasNextLine()) {
-							fo2.format(file2.nextLine() + "\n");
-						} else {
-							break;
-						}
+							fo2.format(file2.nextLine() + "\n"); // escribimos en el fichero
+						} else { break; }
 					}
 					fo2.close();
 					file2.close();
@@ -54,7 +49,7 @@ public class Inicio {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			} else if(eStr.equalsIgnoreCase("2")) {
+			} else if(eStr.equalsIgnoreCase("2")) { // Tarea 2 -------------------------------------
 				eStr = "";
 				String ruta = "";
 				while(true) {	
@@ -62,7 +57,7 @@ public class Inicio {
 					System.out.println("M/A");
 					eStr = sc.nextLine();
 					if(eStr.equalsIgnoreCase("M")) {
-						sc.nextLine();
+						sc.nextLine(); // nos saltamos la primera linea
 						while(true) {
 							System.out.print("Ruta: ");
 							eStr = sc.nextLine();
@@ -86,13 +81,13 @@ public class Inicio {
 						while(true) {
 							eStr = sc.nextLine();
 							for(int i = 0; i < d.length; i++) {
-								if(eStr.equalsIgnoreCase(Integer.toString(i))) {
+								if(eStr.equalsIgnoreCase(Integer.toString(i))) { //Verificamos que exista el archivo
 									compr = true;
 								}
 							}
 							if(compr == true) {
 								for(int i = 0; i < d.length; i++) {
-									if(eStr.equalsIgnoreCase(Integer.toString(i))) {
+									if(eStr.equalsIgnoreCase(Integer.toString(i))) { // elejimos el archivo
 										System.out.println("Ha elejido el fihero: " + d[i]);
 										ruta = "C:\\eclip\\" + d[i];
 									}	
@@ -106,36 +101,42 @@ public class Inicio {
 						break;
 					}
 				}
+				
+				// Calculador de datos y mostrador
 				System.out.println("Ruta: " + ruta);
 				File f = new File(ruta);
-				String linea = "";
+				String linea = ""; 
 				String [] tlinea;
-				int cTotal = 0;
+				int cTotal = 0;  // Creamos varibales contadoras
 				int cCircular = 0;
 				int cTraslado = 0;
 				try {
 					Scanner file = new Scanner(f);
-					file.hasNextLine(); // Nos saltamos la primera linea
+					file.nextLine(); // Nos saltamos la primera linea
 					while(file.hasNextLine()) {
-						linea = file.nextLine();
-						tlinea = linea.split(";");
-						if(tlinea[2].equalsIgnoreCase(tlinea[4])) {
+						Usobici ub = new Usobici(file.nextLine());
+						if(ub.esCircular()) {
 							cCircular++;
 						} else {
 							cTraslado++;
 						}
-						cTotal++;			
+						cTotal++;
 					}
-					System.out.println("Numero de usos como traslado: " + cTotal);
-					System.out.println("Numero de usos como circulares: " + cTraslado);
-					System.out.println("Numero total de usos: " + cCircular);
+					System.out.println();
+					System.out.println("Numero de usos como traslado: " + cTraslado );
+					System.out.println("Numero de usos como circulares: " + cCircular );
+					System.out.println("Numero total de usos: " + cTotal);
 					file.close();
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else if(eStr.equalsIgnoreCase("3")) {
-				Inicio3.start();
+				
+				
+				
+				
+				
 			} else if(eStr.equalsIgnoreCase("4")) {
 				break;
 			} else {

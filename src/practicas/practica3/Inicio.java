@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public class Inicio {
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo muestra el menu principal
+	 */
 	public static void menu() {
 		System.out.println("--------------------");
 		System.out.println("- 1 = Tarea1");
@@ -15,6 +19,12 @@ public class Inicio {
 		System.out.println("- 4 = Salir");
 		System.out.println("--------------------");
 	}
+	
+	/**
+	 * Pre:
+	 * Post: dicho metodo muestra un menu y devuelve la ruta que
+	 * 		 habremos elejido de forma manual o automatica
+	 */
 	public static String ruta(){
 		Scanner sc = new Scanner(System.in);
 		String eStr = "";
@@ -55,7 +65,7 @@ public class Inicio {
 					if(compr == true) {
 						for(int i = 0; i < d.length; i++) {
 							if(eStr.equalsIgnoreCase(Integer.toString(i))) { // elejimos el archivo
-								System.out.println("Ha elejido el fihero: " + d[i]);
+								System.out.println("Ha elegido el fichero: " + d[i]);
 								ruta = "C:\\eclip\\" + d[i]; //ruta = al fichero seleccionado
 							}	
 						}				
@@ -71,6 +81,10 @@ public class Inicio {
 		return ruta;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo muestra un array con el objeto UsuarioBici
+	 */
 	public static void vewArray (ArrayList<UsuarioBici> lista, int size) {
 		if(lista.size() < size) {
 			size = lista.size();
@@ -87,6 +101,11 @@ public class Inicio {
 		
 	}
 	
+	/**
+	 * Pre:
+	 * Post: dicho metodo ordena un array por el total de su objeto
+	 * 		 UsuarioBici
+	 */
 	public static ArrayList<UsuarioBici> organizador(ArrayList<UsuarioBici> lista){ // Nota ARREGLAR METODO
 		UsuarioBici temp = new UsuarioBici(0,0,0,0);
 		for(int i = 0; i < lista.size();i++) {
@@ -113,6 +132,13 @@ public class Inicio {
 		return lista;
 		
 	}
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo es el metodo principal el cual ejecuta los
+	 * 		 menus, lee archivos, escribe en ellos y muestra gran parte
+	 * 		 del programa entre otras cosas
+	 */
 	public static void main(String[] arg) {
 		Scanner sc = new Scanner(System.in); // Clase scanner de entrada de texto de usuario
 		String eStr = ""; // Variable generica de entrada de texto
@@ -141,6 +167,7 @@ public class Inicio {
 					}
 					fo2.close(); // Cerramos
 					file2.close();
+					System.out.println("Proceso finalizado");
 					
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block

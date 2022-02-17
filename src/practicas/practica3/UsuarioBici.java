@@ -14,7 +14,12 @@ public class UsuarioBici {
 		this.circular = circular;
 		this.total = total;
 	}
-
+	
+	/**
+	 * METODOS PRINCIPALES
+	 * Pre:
+	 * Post: Al llamarlos aumentan en 1 su variable
+	 */
 	public void sumTraslados() {
 		this.traslados++;
 	}
@@ -26,11 +31,11 @@ public class UsuarioBici {
 	public void sumTotal() {
 		this.total++;
 	}
+	
 	/*--------------------
 	 * GETERS Y SETERS
 	 *-------------------- 
 	 */
-	
 	public int getUsuario() {
 		return usuario;
 	}
@@ -63,8 +68,10 @@ public class UsuarioBici {
 		this.total = total;
 	}
 	
-	/*
+	/**
 	 * Set general
+	 * Pre:
+	 * Post: Actualiza todos los datos del objeto
 	 */
 	public void setAll(int usuario, int traslados, int circular, int total) {
 		this.usuario = usuario;

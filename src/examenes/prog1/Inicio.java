@@ -34,7 +34,7 @@ public class Inicio {
 					}
 				}else if (data[5].equalsIgnoreCase("female")) {
 					cF++;	
-					if(data[1].equalsIgnoreCase("1")) {// no lo trato ya que no lo veo necesario
+					if(data[1].equalsIgnoreCase("0")) {// no lo trato ya que no lo veo necesario
 						cFFallecido++;
 					}
 				}

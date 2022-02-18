@@ -27,7 +27,7 @@ public class Inicio {
 			System.out.println("Cargando...");
 			while(file.hasNextLine()) {
 				data = file.nextLine().split(","); //Lo separamos por comas
-				if(data[5].equalsIgnoreCase("male")) { // Preguntamos su geneo 
+				if(data[5].equalsIgnoreCase("male")) { // Preguntamos su genero 
 					cM++;
 					if(data[1].equalsIgnoreCase("0")) {// no lo trato ya que no lo veo necesario
 						cMFallecido++;

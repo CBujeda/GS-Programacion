@@ -6,6 +6,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Inicio {
 	
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo trata las comas que esten entre comillas
+	 */
 	public static String tratador(String data) {
 		boolean comillas = false;
 		String datoFin = "";
@@ -30,6 +35,11 @@ public class Inicio {
 		return datoFin;
 	}
 	
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo ordena de mayor a menor un array de DatosCont
+	 */
 	public static ArrayList<DatosCont> mayores(ArrayList<DatosCont>  list) { // Revisar
 		DatosCont temp = new DatosCont("");
 		for(int i = 0; i < list.size(); i++) {
@@ -51,6 +61,11 @@ public class Inicio {
 		return list;
 	}
 	
+	
+	/**
+	 * Pre:
+	 * Post: Corrige los datos de hora y debuelve un entero con dicha hora 
+	 */
 	public static int  timeCorrector(String datos) {
 		String hora = "";
 		hora = datos.replaceAll(" ", "").replaceAll("c:", "").replaceAll("c", ""); // quitamos lo que da error
@@ -62,6 +77,10 @@ public class Inicio {
 		return  Integer.parseInt(hora);
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Muestra una array de Datos Cont
+	 */
 	public static void mList(ArrayList<DatosCont>  list, int cant, String txt) { 
 		if(cant > list.size() || cant <= 0) {
 			cant = list.size();
@@ -77,6 +96,12 @@ public class Inicio {
 		}
 	}
 	
+	
+	/**
+	 * Pre:
+	 * Post: Metodo Principal el cual lee datos contiene arrays y se encarga
+	 * 		 del proceso principal
+	 */
 	public static void main(String[] arg) {
 	
 		File f = new File("C:\\eclip\\Airplane.csv");

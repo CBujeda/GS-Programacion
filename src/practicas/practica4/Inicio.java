@@ -1,4 +1,4 @@
-package examenes.prog1;
+package practicas.practica4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

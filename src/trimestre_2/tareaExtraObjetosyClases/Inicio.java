@@ -79,7 +79,7 @@ public class Inicio {
 						menu3();
 						eStr = "";
 						eStr = sc.nextLine();
-						System.out.print("Descripcion:");
+						System.out.print("Descripcion: ");
 						String descripcion = sc.nextLine();
 						if(eStr.equalsIgnoreCase("1")) {
 							listReparaciones.add(new Reparaciones 
@@ -94,6 +94,7 @@ public class Inicio {
 					
 				}else if(eStr.equalsIgnoreCase("2")) {
 					eStr = "";
+					System.out.println("Descripcion: ");
 					eStr = sc.nextLine();
 					listRevisiones.add(new Revisiones(listRevisiones.size(),eStr));
 				}else {
@@ -130,21 +131,155 @@ public class Inicio {
 					}
 					System.out.println("+------>>>>>>>");
 				}
-			}else if (eStr.equalsIgnoreCase("3")) {
+				System.out.println();
+				System.out.println("Revisiones");
+				System.out.println("+------>>>>>>>");
+				if(listRevisiones.size() == 0) {
+					System.out.println("No hay registros de Revisiones");
+				}
+				for(int i = 0; i < listRevisiones.size(); i++) {
+					//--------------------pROSEGIR
+					System.out.println("Id: "+ 
+							listRevisiones.get(i).getId());
+					System.out.println("Descripcion: "+ 
+							listRevisiones.get(i).getDescription());
+					System.out.println("Horas: "+ 
+							listRevisiones.get(i).getHoras() + "hs");
+					System.out.println("Precio: "+ 
+							listRevisiones.get(i).getPrecio() + "€");
+					if(listRevisiones.get(i).getFinalizado() == true) {
+						System.out.println("Finalizado: SI");
+					}else {
+						System.out.println("Finalizado: NO");
+					}
+					System.out.println("+------>>>>>>>");
+
+				}
 				
+			}else if (eStr.equalsIgnoreCase("3")) {
+				System.out.println("+- MODIFICAR COSTE MATERIALES -+");
+				System.out.println("+ 1 PIEZAS");
+				System.out.println("+ 2 PINTURA");
+				eStr = sc.nextLine();
+				if(eStr.equalsIgnoreCase("1") || eStr.equalsIgnoreCase("2")) {
+					
+					System.out.print("Escriba el precio en valor numerico: ");
+					double eInt = sc.nextDouble();
+					if(eStr.equalsIgnoreCase("1")) {
+						piezas.setCoste(eInt);
+					}else if(eStr.equalsIgnoreCase("2")) {
+						pintura.setCoste(eInt);
+					}
+					System.out.println("Piezas: " + piezas.getCoste() + "€");
+					System.out.println("Pintura: " + pintura.getCoste() + "€");
+					
+					
+					
+				}else {
+					System.out.println("ERROR: Valor no valido");
+				}
 			}else if (eStr.equalsIgnoreCase("4")) {
+				while(true) {
+					System.out.println("¿Que desea finalizar?");
+					System.out.println("+------------------+");
+					System.out.println("+ 1 Reparacion     +");
+					System.out.println("+ 2 Revision       +");
+					System.out.println("+------------------+");
+					eStr = sc.nextLine();
+					System.out.println("Usando esta opcion se"
+							+ " invertira el valor de la finalizacion");
+					if(eStr.equalsIgnoreCase("1") ) {
+						System.out.print("Elija una id:");
+						int eInt = sc.nextInt();
+						if(eInt < listReparaciones.size() && eInt >= 0) {
+							if(listReparaciones.get(eInt).getFinalizado() == false) {
+								listReparaciones.get(eInt).setFinalizado(true);
+								System.out.println("Se ha finalizado la Reparacion");
+							}else {
+								listReparaciones.get(eInt).setFinalizado(false);
+								System.out.println("Se ha eliminado la"
+												+ " finalizacion de reparacion");
+							}
+							
+						}else {
+							System.out.println("[ERROR] No existe dicha reparacion");
+						}
+						break;
+					}else if(eStr.equalsIgnoreCase("2")){
+						System.out.print("Elija una id:");
+						int eInt = sc.nextInt();
+						if(eInt < listRevisiones.size() && eInt >= 0) {
+							if(listRevisiones.get(eInt).getFinalizado() == false) {
+								listRevisiones.get(eInt).setFinalizado(true);
+								System.out.println("Se ha finalizado la Revision");
+							}else {
+								listRevisiones.get(eInt).setFinalizado(false);
+								System.out.println("Se ha eliminado la"
+										+ " finalizacion de revision");
+							}				
+						}else {
+							System.out.println("[ERROR] No existe dicha revision");
+						}
+						break;
+					}else {
+						System.out.println("[ERROR] Elija un valor valido");
+					}
+				}
+				
+				
 				
 			}else if (eStr.equalsIgnoreCase("5")){
-				
+				while(true) {
+					System.out.println("¿Que desea cambiar de horas?");
+					System.out.println("+------------------+");
+					System.out.println("+ 1 Reparacion     +");
+					System.out.println("+ 2 Revision       +");
+					System.out.println("+------------------+");
+					eStr = sc.nextLine();
+					System.out.println("Usando esta opcion se"
+							+ " invertira el valor de la finalizacion");
+					if(eStr.equalsIgnoreCase("1") ) {
+						System.out.print("Elija una id:");
+						int eInt = sc.nextInt();
+						if(eInt < listReparaciones.size() && eInt >= 0) {
+							int horas = sc.nextInt();
+							listReparaciones.get(eInt).setHoras(horas);
+							System.out.println("Horas: " 
+							+ listReparaciones.get(eInt).getHoras());
+						}else {
+							System.out.println("[ERROR] No existe dicha reparacion");
+						}
+						break;
+					}else if(eStr.equalsIgnoreCase("2")){
+						System.out.print("Elija una id:");
+						int eInt = sc.nextInt();
+						if(eInt < listRevisiones.size() && eInt >= 0) {
+							int horas = sc.nextInt();
+							listRevisiones.get(eInt).setHoras(horas);
+							System.out.println("Horas: " 
+									+ listRevisiones.get(eInt).getHoras());
+						}else {
+							System.out.println("[ERROR] No existe dicha revision");
+						}
+						break;
+					}else {
+						System.out.println("[ERROR] Elija un valor valido");
+					}
+				}
 			}else if (eStr.equalsIgnoreCase("6")) {
 				break;
 			}else {
-				System.out.println("No se encontro el valor ||"
-						+ " ERROR: Escriba un valor posible");
+				if(eStr.equalsIgnoreCase("")) {
+				System.out.println("[ADVERTENCIA] Scanner salto valores y genero un"
+									+ " error en dicho caso ingnore este mensaje" );
+				}else {
+					System.out.println("No se encontro el valor ||"
+							+ " ERROR: Escriba un valor posible");
+				}
 			}
 			
 		}
-		
+		sc.close();
 		
 	}
 }

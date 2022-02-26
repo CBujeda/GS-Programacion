@@ -4,12 +4,22 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Inicio {
-
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo añade el numero de lineas
+	 * 		 en consola que le indiques
+	 */
 	public static void limpiar(int x) {
 		for(int i = 0; i < x ; i++) {
 			System.out.println();
 		}
 	}
+	
+	/**
+	 * Pre:
+	 * post: Dicho metodo muestra el menu principal
+	 */
 	public static void menu() {
 		System.out.println("+---------------------+");
 		System.out.println("- 1 Registrar trabajo -");
@@ -21,6 +31,10 @@ public class Inicio {
 		System.out.println("+---------------------+");
 	}
 	
+	/**
+	 * Pre:
+	 * post: Dicho metodo muestra el menu2
+	 */
 	public static void menu2() {
 		System.out.println("Elija un tipo de trabajo: ");
 		System.out.println("+--------------+");
@@ -28,6 +42,11 @@ public class Inicio {
 		System.out.println("+ 2 Revision   +");
 		System.out.println("+--------------+");
 	}
+	
+	/**
+	 * Pre:
+	 * post: Dicho metodo muestra el menu3
+	 */
 	public static void menu3() {
 		System.out.println("Elija un material: ");
 		System.out.println("+---------------+");
@@ -35,6 +54,11 @@ public class Inicio {
 		System.out.println("+ 2 Pintura     +");
 		System.out.println("+---------------+");
 	}
+	
+	/**
+	 * Pre:
+	 * post: Dicho metodo muestra el menu4
+	 */
 	public static void menu4() {
 		System.out.println("Que tipo de reparacion va ha elegir?");
 		System.out.println("+-------------------+");
@@ -43,6 +67,11 @@ public class Inicio {
 		System.out.println("+-------------------+");
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo ejecuta el programa
+	 * 		 principal
+	 */
 	public static void main(String[] arg) {
 		Scanner sc = new Scanner(System.in);
 		String eStr = "";

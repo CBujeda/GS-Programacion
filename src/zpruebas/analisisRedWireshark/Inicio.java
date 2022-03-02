@@ -14,6 +14,7 @@ public class Inicio {
 		try {
 			Scanner efile = new Scanner(entrada);
 			Formatter sfile = new Formatter(salida); 
+			
 			sfile.format(" \"Id\",\"time\", \"salida\",\"entrada\", \"Protocolo\", \"Datos\" \n");
 			
 			while (efile.hasNextLine()) {

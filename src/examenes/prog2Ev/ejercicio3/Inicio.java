@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Inicio {
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo muestra una arraylist
+	 * 		 de tipo tupla
+	 */
 	public static void mostrar(ArrayList<Tupla> list) {
 		for(int i = 0; i< list.size(); i++) {
 			System.out.println(list.get(i).getNombre() + " > "
@@ -13,6 +19,10 @@ public class Inicio {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo trata los campos entre comillas
+	 */
 	public static String tratador(String data) {
 		boolean comillas = false;
 		String datoFin = "";
@@ -37,7 +47,13 @@ public class Inicio {
 		return datoFin;
 	}
 	
-	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo obtiene datos
+	 * 		 los procesa y debuelve una
+	 * 		 tabla de arraylist
+	 * 		 Con procesar es agrupar
+	 */
 	public static ArrayList<Tupla> informacionVideojuegos(){
 		File f = new File("C:\\eclip\\ventasVideojuegos.csv");
 		ArrayList<Tupla> list = new ArrayList<Tupla>();

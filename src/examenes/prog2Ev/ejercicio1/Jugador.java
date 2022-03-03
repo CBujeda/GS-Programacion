@@ -8,6 +8,9 @@ public class Jugador {
 	private int calidad_porteria;
 	private int vidas;
 	
+	/**
+	 * METODO CONSTRUCTOR
+	 */
 	public Jugador(String nombre, int dorsal, int potencia_disparo, int calidad_porteria) {
 		this.nombre = nombre;
 		this.dorsal = dorsal;
@@ -16,6 +19,10 @@ public class Jugador {
 		this.vidas = 2;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: debueleve la habilidad disparo
+	 */
 	public int habilidadDisparo(){ 
 		int total = 0; // sobre 100
 		total = this.potencia_disparo - calidad_porteria;
@@ -24,6 +31,11 @@ public class Jugador {
 		}
 		return total;
 	} 
+	
+	/**
+	 * Pre:
+	 * Post: Devuelve la habilidad porteria
+	 */
 	public int habilidadPorteria() {
 		int total = 0; // sobre 100
 		total = ((this.potencia_disparo + calidad_porteria)/2);
@@ -31,6 +43,9 @@ public class Jugador {
 		
 	}
 
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getNombre() {
 		return nombre;
 	}

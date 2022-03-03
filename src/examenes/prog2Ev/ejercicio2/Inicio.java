@@ -5,6 +5,13 @@ import java.util.Scanner;
 
 public class Inicio {
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo obtiene el texto
+	 * 		 lo procesa, muestra palabras
+	 * 		 y debuelve cantidad con las
+	 * 		 condiciones establecidas
+	 */
 	public static int palabrasMasLargasQue(int longitud){
 		System.out.println("x- Palabras -x");
 		File f = new File("C:\\eclip\\textoExamen.txt");
@@ -14,11 +21,17 @@ public class Inicio {
 			
 			while(file.hasNext()) {
 				String palabra = file.next();
-				
-				if(palabra.length() >= longitud) {
-					cont++;
-					
-					System.out.println(palabra);
+				// no considero los caracteres especiales palabras
+				palabra = palabra.replaceAll("\\.", "").replaceAll(",", "");
+				palabra = palabra.replaceAll(":", "").replaceAll("\"", "");
+				palabra = palabra.replaceAll("\\(", "").replaceAll("\\)","");
+
+				if(!palabra.equalsIgnoreCase("")) {
+					if(palabra.length() >= longitud) {
+						cont++;
+						
+						System.out.println(palabra);
+					}
 				}
 			}
 			
@@ -32,6 +45,12 @@ public class Inicio {
 		return cont;
 	}
 	
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo pide la longitud
+	 * 		 y muestra datos de palabrasMasLargasQue()
+	 */
 	public static void main(String[] arg) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Longitud: ");

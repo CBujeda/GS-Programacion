@@ -5,7 +5,8 @@ public class Inicio {
 	
 	public static void mostrar(ArrayList<Jugador> list) {
 		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).getNombre() + " > " + list.get(i).getDorsal());
+			System.out.println(list.get(i).getNombre() + " > " 
+		+ list.get(i).getDorsal() + " V: " + list.get(i).getVidas());
 		}
 	}
 
@@ -33,16 +34,51 @@ public class Inicio {
 			list.remove(ubic);
 			
 		}
+		System.out.println("Fila de jugadores: ");
 		mostrar(list);
 		
-		
-		for(int i = 0; i < list.size(); i++) {
-				if(list.get(i+1).habilidadDisparo() > list.get(i).habilidadPorteria()) {
-					list.get(i).setVidas(list.get(i).getVidas()-1);
-					
+		int size = list.size();
+		System.out.println("Piiiiiiiiiii Comienza el Juego!");
+		while(list.size() > 1) {
+			for(int i = 0; i < size; i++) {
+				if(list.size() > 1) {
+					System.out.println("---------------------");
+					if(i != list.size() - 1) {
+						System.out.println(list.get(i).getNombre() + " sera portero");
+						System.out.println(list.get(i+1).getNombre() + " sera disparador");
+						if(list.get(i+1).habilidadDisparo() > list.get(i).habilidadPorteria()) {
+							System.out.println(" >" + list.get(i+1).getNombre() + " Atino gol");
+							list.get(i).setVidas(list.get(i).getVidas()-1);
+						}else {
+							System.out.println(" >" + list.get(i).getNombre() + " Paro la  bola");
+						}
+					}else {
+						System.out.println(list.get(i).getNombre() + " sera portero");
+						System.out.println(list.get(0).getNombre() + " sera disparador");
+						if(list.get(0).habilidadDisparo() > list.get(i).habilidadPorteria()) {
+							System.out.println(" >" + list.get(0).getNombre() + " Atino gol");
+							list.get(i).setVidas(list.get(i).getVidas()-1);
+						}else {
+							System.out.println(" >" + list.get(i).getNombre() + " Paro la  bola");
+						}
+					}
 				}
+				
+				if(list.get(i).getVidas() == 0) {
+					System.out.println(list.get(i).getNombre() + "Fuera");
+					list.remove(i);
+					
+					size = list.size();
+				}
+			
+			}
+		
 		}
+		System.out.println("x---------------------x");
+		System.out.println("Jugadores ganadores: " + list.size());
+		System.out.println("Jugador ganador: ");
 		mostrar(list);
+		
 		
 		
 		

@@ -2,17 +2,39 @@ package examenes.prog2Ev.ejercicio3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 import java.util.ArrayList;
-public class Inicio {
-	
+import java.util.Scanner;
 
-	
+public class Inicio {
 	public static void mostrar(ArrayList<Tupla> list) {
 		for(int i = 0; i< list.size(); i++) {
 			System.out.println(list.get(i).getNombre() + " > "
 								+ list.get(i).getCantidad());
 		}
+	}
+	
+	public static String tratador(String data) {
+		boolean comillas = false;
+		String datoFin = "";
+		for(int i = 0; i < data.length(); i++) {
+			
+			if(data.substring(i,i + 1).equalsIgnoreCase("\"")) {
+				if(comillas == false) {
+					comillas = true;
+				}else {
+					comillas = false;
+				}
+			}
+			if(comillas == true) {
+				if(!data.substring(i,i + 1).equalsIgnoreCase(",")) {
+					datoFin = datoFin + data.substring(i,i + 1);
+				}
+			}else{
+				datoFin = datoFin + data.substring(i,i + 1);
+			}
+			
+		}
+		return datoFin;
 	}
 	
 	
@@ -31,20 +53,10 @@ public class Inicio {
 				boolean existe = false;
 				int ubic = 2;
 				String dato = file.nextLine();
-				 
+				dato = tratador(dato);
 	
 				String [] datos = dato.split(","); // pendiente de mejorar
-				boolean comilla = false;
-				for(int i = 0; i < datos[2].length(); i++) { // nos aumentamos 1 en los que el campo 2 tenga comillas
-					if(datos[2].substring(i,i+1).equalsIgnoreCase("\"")) {
-							comilla = true;
-					}
-				}
-				if(comilla == false) {
-					 ubic = 2;
-				}else {
-					ubic = 3;
-				}
+				
 				
 				if(primer == true) {
 					list.add(new Tupla(datos[ubic],1));
@@ -77,4 +89,6 @@ public class Inicio {
 	public static void main(String[] arg) {
 		mostrar(informacionVideojuegos());
 	}
+
+
 }

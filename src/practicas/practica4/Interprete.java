@@ -22,14 +22,25 @@ public class Interprete {
 				existe = true;
 				for(int r = 0; r < lAsig.size(); r++) {
 					if(Integer.toString(lMatric.get(i).getCod_asignatura())
-							.trim().equalsIgnoreCase(lAsig.get(r)[0].trim())) {
-						System.out.println(nip + " " 
-							+ lMatric.get(i).getCod_asignatura() + " " + lAsig.get(r)[4]);
+							.trim().equalsIgnoreCase(lAsig.get(r)[0].trim())) {				
+						lasig_nip.add(new Asignaturas_nip(Integer.parseInt(nip), 
+								lMatric.get(i).getCod_asignatura(),  lAsig.get(r)[4]));
 					}
 				}
 			}
 		}
-		if(existe = false) {
+		
+		if(type == true) {
+			lasig_nip = Organizadores.asignaturas_nip_a(lasig_nip);
+		}
+		
+		for(int i = 0; i< lasig_nip.size();i++) {
+			System.out.println(lasig_nip.get(i).getNip() + " " +
+								lasig_nip.get(i).getCod_asig() + " " +
+								lasig_nip.get(i).getAsig());
+		}
+		
+		if(existe == false) {
 			System.out.println("El alumno con el nip " + nip + " no existe");
 		}
 		System.out.println("Tipo: " + type);

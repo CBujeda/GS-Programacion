@@ -1,9 +1,41 @@
 package practicas.practica4;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Interprete {
-
+	
+	public static void matric() {
+		ArrayList<Matricula> l = Reader.matriculas();
+		System.out.println("Numero total de matriculas: " + l.size());
+	}
+	
+	// alumno de prueba 627867
+	public static void asignaturas(boolean type, String nip) { //si es true es tipo A
+		ArrayList<String[]> lAsig = Reader.asignaturas();
+		ArrayList<Matricula> lMatric = Reader.matriculas();
+		ArrayList<Asignaturas_nip> lasig_nip = new ArrayList<Asignaturas_nip>();
+		boolean existe = false;
+		for(int i = 0; i < lMatric.size(); i++) {
+			if(Integer.toString(lMatric.get(i)
+					.getNip_alumno()).trim().equalsIgnoreCase(nip.trim())) {
+				existe = true;
+				for(int r = 0; r < lAsig.size(); r++) {
+					if(Integer.toString(lMatric.get(i).getCod_asignatura())
+							.trim().equalsIgnoreCase(lAsig.get(r)[0].trim())) {
+						System.out.println(nip + " " 
+							+ lMatric.get(i).getCod_asignatura() + " " + lAsig.get(r)[4]);
+					}
+				}
+			}
+		}
+		if(existe = false) {
+			System.out.println("El alumno con el nip " + nip + " no existe");
+		}
+		System.out.println("Tipo: " + type);
+		System.out.println("Nip: " + nip);
+	}
+	
 	public static void esintaxis(String data) {
 		System.out.println("Sintaxis del comando \""+ data +" \" Incorrecta");
 	}
@@ -32,14 +64,16 @@ public class Interprete {
 				if(command.equalsIgnoreCase("fin") || command.equalsIgnoreCase("exit")) {
 					break;
 				}else if(command.equalsIgnoreCase("matriculas")) {
-					Reader.matriculas();
+					matric();
 				}else if(command.toLowerCase().contains("asignaturas")) {
 					if( command.split(" ").length == 2 ||
 						command.split(" ").length == 3) {
-						
-						System.out.println("Valido");
-						
-					}else {esintaxis(command);}
+						if(command.split(" ").length == 3) {
+							if(command.split(" ")[2].equalsIgnoreCase("a")) {
+								asignaturas(true, command.split(" ")[1]); // es "A"
+							}else { asignaturas(false, command.split(" ")[1]); } // es diferente a "A"
+						}else { asignaturas(false, command.split(" ")[1]); } // no contiene atributo
+					}else { esintaxis(command); }// error de sintaxis
 				}else if(command.toLowerCase().contains("alumnos")) {
 					System.out.println("Funciona 2");
 				}else if(command.toLowerCase().contains("eliminar")) {

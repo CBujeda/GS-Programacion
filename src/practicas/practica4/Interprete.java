@@ -47,12 +47,34 @@ public class Interprete {
 		//System.out.println("Nip: " + nip);
 	}
 	
-	public static void alumnos(boolean type, String nip) {
+	// asignatura de prueba 30201
+	public static void alumnos(boolean type, String codigo) {
 		ArrayList<Matricula> lMatric = Reader.matriculas();
 		ArrayList<String[]> lAlumno = Reader.alumnos();
+		ArrayList<Alumno_codigo> lAlumcod = new ArrayList<Alumno_codigo>(); 
+		for(int i = 0; i < lMatric.size(); i++) {
+			if(Integer.toString(lMatric.get(i)
+					.getCod_asignatura()).equalsIgnoreCase(codigo)) {
+				for(int r = 0; r < lAlumno.size();r++) {
+					if(Integer.toString(lMatric.get(i).getNip_alumno())
+							.equalsIgnoreCase(lAlumno.get(r)[0])) {
+						lAlumcod.add(new Alumno_codigo(lAlumno.get(i)[2] +
+								" " + lAlumno.get(i)[1],lMatric.get(i).getNip_alumno(),
+								Integer.parseInt(codigo)));
+					}
+				}
+			}
+		}
 		
+		
+		// ---------------------------------------Prosegir
+		for(int i = 0; i < lAlumcod.size(); i++) {
+			System.out.println(lAlumcod.get(i).getAlumno() 
+					+ " ║ " + lAlumcod.get(i).getNip() 
+					+ " ║ " + lAlumcod.get(i).getCodigo());
+		}
 		System.out.println("Tipo: " + type);
-		System.out.println("Nip: " + nip);
+		System.out.println("Nip: " + codigo);
 	}
 	
 	public static void esintaxis(String data) {

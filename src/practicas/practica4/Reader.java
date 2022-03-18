@@ -66,6 +66,9 @@ public class Reader {
 		try {
 			String [] data;
 			Scanner file = new Scanner(f);
+			if(file.hasNextLine()) {
+				file.nextLine();
+			}
 			while(file.hasNextLine()) {
 				data = file.nextLine().split(";");
 				l.add(data);

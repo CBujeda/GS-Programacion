@@ -50,11 +50,33 @@ public class Reader {
 					}
 				}
 				l.add(dataProcess);
+				//file.close(); // no cerramos ya que si no scanner revienta
 			}			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return l;
-	}	
+	}
+	
+	
+	public static ArrayList<String[]> alumnos() {
+		File f = new File("C:\\eclip\\practica4\\alumnos.csv");
+		ArrayList<String[]> l = new ArrayList<String[]>();
+		try {
+			String [] data;
+			Scanner file = new Scanner(f);
+			while(file.hasNextLine()) {
+				data = file.nextLine().split(";");
+				l.add(data);
+			}
+			//file.close(); // no cerramos ya que si no scanner revienta
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return l;
+		
+		
+	}
 }

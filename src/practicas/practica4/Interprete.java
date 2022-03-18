@@ -2,6 +2,7 @@ package practicas.practica4;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Interprete {
 	
@@ -28,21 +29,28 @@ public class Interprete {
 					}
 				}
 			}
-		}
-		
-		if(type == true) {
-			lasig_nip = Organizadores.asignaturas_nip_a(lasig_nip);
-		}
-		
-		for(int i = 0; i< lasig_nip.size();i++) {
-			System.out.println(lasig_nip.get(i).getNip() + " " +
-								lasig_nip.get(i).getCod_asig() + " " +
-								lasig_nip.get(i).getAsig());
-		}
-		
+		}	
+		if(type == true) { Collections.sort(lasig_nip);
+		}else { lasig_nip = Organizadores.asignaturas_num_creciente(lasig_nip); }
 		if(existe == false) {
 			System.out.println("El alumno con el nip " + nip + " no existe");
+		}else {
+			System.out.println("NIP ║ CODIGO ║ ASIGNATURA");
+			System.out.println("═══════════════════════════");
+			for(int i = 0; i< lasig_nip.size();i++) {
+				System.out.println(lasig_nip.get(i).getNip() + " " +
+									lasig_nip.get(i).getCod_asig() + " " +
+									lasig_nip.get(i).getAsig());
+			}
 		}
+		//System.out.println("Tipo: " + type);
+		//System.out.println("Nip: " + nip);
+	}
+	
+	public static void alumnos(boolean type, String nip) {
+		ArrayList<Matricula> lMatric = Reader.matriculas();
+		ArrayList<String[]> lAlumno = Reader.alumnos();
+		
 		System.out.println("Tipo: " + type);
 		System.out.println("Nip: " + nip);
 	}
@@ -87,17 +95,30 @@ public class Interprete {
 					}else { esintaxis(command); }// error de sintaxis
 				}else if(command.toLowerCase().contains("alumnos")) {
 					System.out.println("Funciona 2");
+					
+					if( command.split(" ").length == 2 ||
+							command.split(" ").length == 3) {
+							if(command.split(" ").length == 3) {
+								if(command.split(" ")[2].equalsIgnoreCase("a")) {
+									alumnos(true, command.split(" ")[1]); // es "A"
+								}else { alumnos(false, command.split(" ")[1]); } // es diferente a "A"
+							}else { alumnos(false, command.split(" ")[1]); } // no contiene atributo
+						}else { esintaxis(command); }// error de sintaxis
+					
+					
+					
+					
 				}else if(command.toLowerCase().contains("eliminar")) {
 					System.out.println("Funciona 3");
 				}else if(command.toLowerCase().contains("matricular")) {
 					System.out.println("Funciona 3");
 				}else if(command.equalsIgnoreCase("help")) {
-					
+					Help.m1();
 				}else {
 					System.out.println("El comando \""+command+"\" no se encontro");
 				}
 			}else { // cuando command no es nada es que se ha saltado
-				System.out.println("ADVERTENCIA | Scanner se salto una toma");
+				System.out.println("          ADVERTENCIA | Scanner se salto una toma");
 			}			
 		}	
 	}

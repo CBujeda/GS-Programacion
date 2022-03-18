@@ -1,10 +1,13 @@
 package practicas.practica4;
 
-public class Asignaturas_nip {
+public class Asignaturas_nip implements Comparable<Asignaturas_nip> {
 	
 	private int nip;
 	private int cod_asig;
 	private String asig;
+	
+	public Asignaturas_nip () {
+	}
 	
 	public Asignaturas_nip (int nip, int cod_asig, String asig) {
 		this.nip = nip;
@@ -37,5 +40,18 @@ public class Asignaturas_nip {
 		this.asig = asig;
 	}
 	
+	public void setAll(int nip, int cod_asig, String asig) {
+		this.nip = nip;
+		this.cod_asig = cod_asig;
+		this.asig = asig;
+	}
+
+	@Override
+	public int compareTo(Asignaturas_nip o) {
+		
+		//Hacemos la comparacion
+		return this.asig.toLowerCase().compareTo(o.asig.toLowerCase());
+	}
+
 
 }

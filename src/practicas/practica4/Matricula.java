@@ -28,7 +28,12 @@ public class Matricula {
 	public void setCod_asignatura(int cod_asignatura) {
 		this.cod_asignatura = cod_asignatura;
 	}
-
+	
+	public void setNulo() {
+		this.nip_alumno = -1;
+		this.cod_asignatura = -1;
+	}
+	
 	@Override
 	public String toString() {
 		return "Matricula [nip_alumno=" + nip_alumno + ", cod_asignatura=" + cod_asignatura

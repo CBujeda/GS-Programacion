@@ -10,7 +10,33 @@ public class Interprete {
 		ArrayList<Matricula> l = Reader.matriculas();
 		System.out.println("Numero total de matriculas: " + l.size());
 	}
-	
+	// prueba eliminar 627867 30201,30202,30203,30204
+	public static void eliminar(String nip, String codigo) {
+		ArrayList<Matricula> l = Reader.matriculas();
+		for(int i = 0; i < l.size(); i++) {
+			String[] cadena = null;
+			if(!codigo.equalsIgnoreCase("false")) {
+				 cadena = codigo.split(",");
+			}
+			if(Integer.toString(l.get(i).getNip_alumno()).equalsIgnoreCase(nip)) {
+				if(codigo.equalsIgnoreCase("false")) {
+					System.out.println("Eliminado: " + l.get(i).getNip_alumno() + "(NIP)" 
+							+ " " + l.get(i).getCod_asignatura()+ "(CODIGO)");
+					l.get(i).setNulo();
+				}else {
+					for(int r = 0; r < cadena.length; r++) {
+						if(Integer.toString(l.get(i).getCod_asignatura()).equalsIgnoreCase(cadena[r])) {
+							System.out.println("Eliminado: " + l.get(i).getNip_alumno() + "(NIP)" 
+									+ " " + l.get(i).getCod_asignatura()+ "(CODIGO)");
+							l.get(i).setNulo();
+						}
+					}
+				}
+			}
+		}
+		Writter.matriculas(l);
+		
+	}
 	// alumno de prueba 627867
 	public static void asignaturas(boolean type, String nip) { //si es true es tipo A
 		ArrayList<String[]> lAsig = Reader.asignaturas();
@@ -134,12 +160,13 @@ public class Interprete {
 							}else { alumnos(false, command.split(" ")[1]); } // no contiene atributo
 						}else { esintaxis(command); }// error de sintaxis
 				}else if(command.toLowerCase().contains("eliminar")) {
-					System.out.println("Funciona 3");
-					
-					
-					
-					
-					
+					if( command.split(" ").length == 2 ||
+							command.split(" ").length == 3) {
+						if(command.split(" ").length == 3) { 
+							eliminar(command.split(" ")[1],
+									 command.split(" ")[2]);
+						} else { eliminar(command.split(" ")[1],"false"); }					
+					}else { esintaxis(command); }
 				}else if(command.toLowerCase().contains("matricular")) {
 					System.out.println("Funciona 3");
 				}else if(command.equalsIgnoreCase("help")) {

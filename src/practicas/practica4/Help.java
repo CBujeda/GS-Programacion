@@ -21,7 +21,10 @@ public class Help {
 		System.out.println("\r\n"
 				+"• Eliminar nip { codigo } -- Elimina matriculaciones por asignatura\r\n"
 				+ "	- {codigo} Elimina matriculaciones alumno por asignatura\r\n"
+				+ "		       - [EX:]  (LIST) {codigo} = 30201,30202,30203,30204\r\n"
 				+ "	- { } 	   Elimina todas las matriculaciones de un alumno");
+
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package practicas.practica4;
 
-public class Alumno_codigo {
+public class Alumno_codigo implements Comparable<Alumno_codigo> {
 	
 	private String alumno;
 	private int nip;
@@ -42,5 +42,10 @@ public class Alumno_codigo {
 		this.codigo = codigo;	
 		
 	}
-	
+
+	@Override
+	public int compareTo(Alumno_codigo o) {
+		//Hacemos la comparacion
+		return this.alumno.toLowerCase().compareTo(o.alumno.toLowerCase());
+	}
 }

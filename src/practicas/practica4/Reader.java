@@ -72,6 +72,7 @@ public class Reader {
 			while(file.hasNextLine()) {
 				data = file.nextLine().split(";");
 				l.add(data);
+				
 			}
 			//file.close(); // no cerramos ya que si no scanner revienta
 		} catch (FileNotFoundException e) {

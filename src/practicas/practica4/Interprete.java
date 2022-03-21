@@ -52,12 +52,15 @@ public class Interprete {
 		ArrayList<Matricula> lMatric = Reader.matriculas();
 		ArrayList<String[]> lAlumno = Reader.alumnos();
 		ArrayList<Alumno_codigo> lAlumcod = new ArrayList<Alumno_codigo>(); 
+		boolean existe = false;
 		for(int i = 0; i < lMatric.size(); i++) {
 			if(Integer.toString(lMatric.get(i)
 					.getCod_asignatura()).equalsIgnoreCase(codigo)) {
+				existe = true;
 				for(int r = 0; r < lAlumno.size();r++) {
 					if(Integer.toString(lMatric.get(i).getNip_alumno())
 							.equalsIgnoreCase(lAlumno.get(r)[0])) {
+						//System.out.println(lAlumno.get(i)[2]);
 						lAlumcod.add(new Alumno_codigo(lAlumno.get(i)[2] +
 								" " + lAlumno.get(i)[1],lMatric.get(i).getNip_alumno(),
 								Integer.parseInt(codigo)));
@@ -66,7 +69,14 @@ public class Interprete {
 			}
 		}
 		
-		
+		if(type == true) { Collections.sort(lAlumcod);
+		}else {  }
+		if(existe == false) {
+			System.out.println("La asignatura con el codigo " + codigo + " no existe");
+		}else {
+			System.out.println("ALUMNO ║ NIP ║ CODIGO");
+			System.out.println("═══════════════════════════");
+		}
 		// ---------------------------------------Prosegir
 		for(int i = 0; i < lAlumcod.size(); i++) {
 			System.out.println(lAlumcod.get(i).getAlumno() 

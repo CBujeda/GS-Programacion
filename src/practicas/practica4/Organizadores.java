@@ -24,12 +24,21 @@ public class Organizadores {
 									temp.getAsig());
 					
 				}
-				
 			}
 		}
 		
 		return l;
 	}
+		
+	public static ArrayList<Alumno_codigo>
+		 alumnos_num_creciente(ArrayList<Alumno_codigo> l){
+			 for(int i = 0; i < l.size(); i++) {
+				 
+			 }
+			 
+			return l;	
+		}
+		
 	
 		
 }

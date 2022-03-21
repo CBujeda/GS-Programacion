@@ -6,6 +6,7 @@ public class Alumno_codigo implements Comparable<Alumno_codigo> {
 	private int nip;
 	private int codigo;
 	
+	public Alumno_codigo() {}
 	public Alumno_codigo(String alumno, int nip, int codigo) {
 		this.alumno = alumno;
 		this.nip = nip;

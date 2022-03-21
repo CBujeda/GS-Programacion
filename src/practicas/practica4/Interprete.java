@@ -82,8 +82,8 @@ public class Interprete {
 					+ " ║ " + lAlumcod.get(i).getNip() 
 					+ " ║ " + lAlumcod.get(i).getCodigo());
 		}
-		System.out.println("Tipo: " + type);
-		System.out.println("Nip: " + codigo);
+		//System.out.println("Tipo: " + type);
+		//System.out.println("Nip: " + codigo);
 	}
 	
 	public static void esintaxis(String data) {
@@ -125,8 +125,6 @@ public class Interprete {
 						}else { asignaturas(false, command.split(" ")[1]); } // no contiene atributo
 					}else { esintaxis(command); }// error de sintaxis
 				}else if(command.toLowerCase().contains("alumnos")) {
-					System.out.println("Funciona 2");
-					
 					if( command.split(" ").length == 2 ||
 							command.split(" ").length == 3) {
 							if(command.split(" ").length == 3) {
@@ -135,12 +133,13 @@ public class Interprete {
 								}else { alumnos(false, command.split(" ")[1]); } // es diferente a "A"
 							}else { alumnos(false, command.split(" ")[1]); } // no contiene atributo
 						}else { esintaxis(command); }// error de sintaxis
-					
-					
-					
-					
 				}else if(command.toLowerCase().contains("eliminar")) {
 					System.out.println("Funciona 3");
+					
+					
+					
+					
+					
 				}else if(command.toLowerCase().contains("matricular")) {
 					System.out.println("Funciona 3");
 				}else if(command.equalsIgnoreCase("help")) {

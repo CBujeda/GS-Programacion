@@ -32,13 +32,22 @@ public class Organizadores {
 		
 	public static ArrayList<Alumno_codigo>
 		 alumnos_num_creciente(ArrayList<Alumno_codigo> l){
+			 Alumno_codigo temp = new Alumno_codigo();
 			 for(int i = 0; i < l.size(); i++) {
-				 
+				 for(int r = i+1; r < l.size(); r++) {
+					 if(l.get(i).getNip() > l.get(r).getNip()) {
+						 temp.setAll(l.get(r).getAlumno(),
+								 	 l.get(r).getNip(),
+								 	 l.get(r).getCodigo());
+						 l.get(r).setAll(l.get(i).getAlumno(),
+								 		 l.get(i).getNip(),
+								 		 l.get(i).getCodigo());
+						 l.get(i).setAll(temp.getAlumno(),
+								 		 temp.getNip(),
+								 		 temp.getCodigo());
+					 }
+				 }
 			 }
-			 
 			return l;	
-		}
-		
-	
-		
+		}	
 }

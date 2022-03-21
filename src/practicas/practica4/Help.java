@@ -18,6 +18,10 @@ public class Help {
 				+ "	- [A] Orden Alfabetico\r\n"
 				+ "	- [N] Orden por nip de alumno creciente\r\n"
 				+ "	- [ ] Orden por nip de alumno creciente");
+		System.out.println("\r\n"
+				+"• Eliminar nip { codigo } -- Elimina matriculaciones por asignatura\r\n"
+				+ "	- {codigo} Elimina matriculaciones alumno por asignatura\r\n"
+				+ "	- { } 	   Elimina todas las matriculaciones de un alumno");
 	}
 
 }

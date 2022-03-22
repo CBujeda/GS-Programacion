@@ -8,8 +8,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 
+/**
+ * Clase la cual contiene metodos de lectura
+ */
 public class Reader {
 	
+	/**
+	 * Pre:
+	 * Post: metodo que lee un fichero binario (matriculas.dat)
+	 * 		 y lo inserta en un ArrayList de Matriculas y la devuelve
+	 */
 	public static ArrayList<Matricula> matriculas() {
 		ArrayList<Matricula> l = new ArrayList<Matricula>();
 		try {
@@ -28,6 +36,11 @@ public class Reader {
 		return l;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual lee asignaturas.txt y devuelve una tabla
+	 * 		 con los datos
+	 */
 	public static ArrayList<String[]> asignaturas() {
 		ArrayList<String[]> l = new ArrayList<String[]>();
 		File f = new File("C:\\eclip\\practica4\\asignaturas.txt");
@@ -44,7 +57,7 @@ public class Reader {
 					}else {
 						if(dataProcess[4] == null) {
 							dataProcess[4] = data[i];
-						}else {
+						} else {
 							dataProcess[4] = dataProcess[4] + " " + data[i];
 						}
 					}
@@ -59,7 +72,11 @@ public class Reader {
 		return l;
 	}
 	
-	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual lee un aechivo (alumnos.csv)
+	 * 		 y lo devuelve en una tabla
+	 */
 	public static ArrayList<String[]> alumnos() {
 		File f = new File("C:\\eclip\\practica4\\alumnos.csv");
 		ArrayList<String[]> l = new ArrayList<String[]>();

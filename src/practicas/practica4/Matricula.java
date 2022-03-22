@@ -5,13 +5,17 @@ public class Matricula {
 	private int nip_alumno;
 	private int cod_asignatura;
 	
+	/**
+	 * CONSTRUCTOR
+	 */
 	public Matricula(int nip_alumno, int cod_asignatura) {
-
 		this.nip_alumno = nip_alumno;
 		this.cod_asignatura = cod_asignatura;
 	}
 
-
+	/**
+	 * GETERS AND SETERS
+	 */
 
 	public int getNip_alumno() {
 		return nip_alumno;

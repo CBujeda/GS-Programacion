@@ -2,9 +2,15 @@ package practicas.practica4;
 
 import java.util.ArrayList;
 
-
+/**
+ * Clase la cual contiene los Metodos Organizadores
+ */
 public class Organizadores {
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual ordena de menor a mayor una lista de asignaturas_nip
+	 */
 	public static ArrayList<Asignaturas_nip>
 		asignaturas_num_creciente(ArrayList<Asignaturas_nip> l){
 		Asignaturas_nip temp = new Asignaturas_nip();
@@ -30,6 +36,11 @@ public class Organizadores {
 		return l;
 	}
 		
+	/**
+	 * Pre:
+	 * Post: Metodo el cual ordena de menor a mayor una lista
+	 * 		 de Alumno_codigo
+	 */
 	public static ArrayList<Alumno_codigo>
 		 alumnos_num_creciente(ArrayList<Alumno_codigo> l){
 			 Alumno_codigo temp = new Alumno_codigo();

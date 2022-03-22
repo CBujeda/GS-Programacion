@@ -1,7 +1,13 @@
 package practicas.practica4;
-
+/**
+ * Clase la cual contiene metodos de ayuda
+ */
 public class Help {
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual imprime una ayuda sobre los comando a poder usar
+	 */
 	public static void m1() {
 		System.out.println("\r\n"
 				+ "• Matrículas  -- Informa del número total de matrículas de"

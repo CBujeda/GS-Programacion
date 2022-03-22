@@ -3,15 +3,24 @@ package practicas.practica4;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
-
+/**
+ * Clase principal la cual ejecuta la parte esencial del codigo
+ */
 public class Interprete {
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual mustra el numero de matriculas
+	 */
 	public static void matric() {
 		ArrayList<Matricula> l = Reader.matriculas();
 		System.out.println("Numero total de matriculas: " + l.size());
 	}
 	
-	// nip = 627867 // codigos 30201,30202,30203,30204
+	/**
+	 * Pre:
+	 * Post: Metodo el cual matricula una asignatura a un alumno EXISTENTES 
+	 */
 	public static void matricular(String nip, String codigo) {
 		ArrayList<Matricula> l = Reader.matriculas();
 		ArrayList<String[]> lAsig = Reader.asignaturas();
@@ -33,7 +42,7 @@ public class Interprete {
 						valided = false;
 						System.out.println("Codigo invalido (no puede ser menor a 0)");
 					}
-		        }catch(NumberFormatException e) {
+		        } catch(NumberFormatException e) {
 		        	valided = false;
 		            System.out.println("No es numerico");
 		        }
@@ -44,7 +53,7 @@ public class Interprete {
 		        	valided = false;
 					System.out.println("Codigo invalido (no puede ser menor a 0)");
 		        }
-			}catch(NumberFormatException e) {
+			} catch(NumberFormatException e) {
 	        	valided = false;
 	        	System.out.println("invalido");
 	        }
@@ -69,8 +78,6 @@ public class Interprete {
 						}
 					}
 					if(AsigValid == true) {
-						// matricular 627867 30201,30202,30203,30204
-						// matricular 627867 30201,30202,30203,30204,30206
 						int cont = 0;
 						System.out.println("               NIP ║  CODIGO");
 						System.out.println("══════════════════════════════");
@@ -93,7 +100,7 @@ public class Interprete {
 								l.add(new Matricula(Integer.parseInt(nip)
 												   ,Integer.parseInt(codigos[i])));
 								cont++;
-							}else {
+							} else {
 								System.out.println("Matricula:    " + nip 
 										+ " " + codigos[i] + " ya existenete");
 							}
@@ -102,25 +109,28 @@ public class Interprete {
 						Writter.matriculas(l); // escribiendo matriculas....
 						System.out.println("El alumno con el nip: " + nip
 										 + " se matriculo en " + cont + " asignaturas");
-					}else {
+					} else {
 						System.out.println("No se puedo ejecutar ya que "
 										 + "alguna asignatura es invalida");
 					}
-				}else {
+				} else {
 					System.out.println("No se puedo ejecutar ya que "
 							 + "el alumno es invalido");
 				}
-			}else {
+			} else {
 				System.out.println("No se puedo ejecutar ya que "
 							 	 + "los datos son erroneos");
 			}
-		}else {
+		} else {
 			System.out.println("No se puedo ejecutar ya que se debe "
 							 + "de constar una lista de codigos");
 		}	
 	}
 	
-	// prueba eliminar 627867 30201,30202,30203,30204
+	/**
+	 * Pre:
+	 * Post: Metodo el cual elimina una matricula
+	 */
 	public static void eliminar(String nip, String codigo) {
 		ArrayList<Matricula> l = Reader.matriculas();
 		for(int i = 0; i < l.size(); i++) {
@@ -147,10 +157,13 @@ public class Interprete {
 				}
 			}
 		}
-		Writter.matriculas(l);
-		
+		Writter.matriculas(l);	
 	}
-	// alumno de prueba 627867
+	
+	/**
+	 *Pre:
+	 *Post: Metodo que muestra asignaturas sobre un alumno
+	 */
 	public static void asignaturas(boolean type, String nip) { //si es true es tipo A
 		ArrayList<String[]> lAsig = Reader.asignaturas();
 		ArrayList<Matricula> lMatric = Reader.matriculas();
@@ -170,10 +183,10 @@ public class Interprete {
 			}
 		}	
 		if(type == true) { Collections.sort(lasig_nip);
-		}else { lasig_nip = Organizadores.asignaturas_num_creciente(lasig_nip); }
+		} else { lasig_nip = Organizadores.asignaturas_num_creciente(lasig_nip); }
 		if(existe == false) {
 			System.out.println("El alumno con el nip " + nip + " no existe");
-		}else {
+		} else {
 			System.out.println("NIP ║ CODIGO ║ ASIGNATURA");
 			System.out.println("═══════════════════════════");
 			for(int i = 0; i< lasig_nip.size();i++) {
@@ -182,11 +195,12 @@ public class Interprete {
 									lasig_nip.get(i).getAsig());
 			}
 		}
-		//System.out.println("Tipo: " + type);
-		//System.out.println("Nip: " + nip);
 	}
 	
-	// asignatura de prueba 30201
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra alumnos sobre una asignatura
+	 */
 	public static void alumnos(boolean type, String codigo) {
 		ArrayList<Matricula> lMatric = Reader.matriculas();
 		ArrayList<String[]> lAlumno = Reader.alumnos();
@@ -206,29 +220,33 @@ public class Interprete {
 				}
 			}
 		}
-		
 		if(type == true) { Collections.sort(lAlumcod);
-		}else {lAlumcod = Organizadores.alumnos_num_creciente(lAlumcod);  }
+		} else {lAlumcod = Organizadores.alumnos_num_creciente(lAlumcod);  }
 		if(existe == false) {
 			System.out.println("La asignatura con el codigo " + codigo + " no existe");
-		}else {
+		} else {
 			System.out.println("ALUMNO ║ NIP ║ CODIGO");
 			System.out.println("═══════════════════════════");
 		}
-		// ---------------------------------------Prosegir
 		for(int i = 0; i < lAlumcod.size(); i++) {
 			System.out.println(lAlumcod.get(i).getAlumno() 
 					+ " ║ " + lAlumcod.get(i).getNip() 
 					+ " ║ " + lAlumcod.get(i).getCodigo());
 		}
-		//System.out.println("Tipo: " + type);
-		//System.out.println("Nip: " + codigo);
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual se muestra cuando la sintaxis (Basica) es erronea
+	 */
 	public static void esintaxis(String data) {
 		System.out.println("Sintaxis del comando \""+ data +" \" Incorrecta");
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual imprime el logo del interprete
+	 */
 	public static void logo() {
 		System.out.println(
 				"    _____   __________________  ____  ____  __________________\r\n"
@@ -240,6 +258,11 @@ public class Interprete {
 		System.out.println("   [help] > Ayuda de comandos \n");
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo principal el cual pregunta los comandos
+	 * 		 y hace sus respectivas comprobaciones basicas
+	 */
 	public static void console() {
 		logo();
 		
@@ -253,49 +276,49 @@ public class Interprete {
 			// Dejo con exit tambien para facilitar mi uso ya que estoy mas acostumbrada
 				if(command.equalsIgnoreCase("fin") || command.equalsIgnoreCase("exit")) {
 					break;
-				}else if(command.equalsIgnoreCase("matriculas")) {
+				} else if(command.equalsIgnoreCase("matriculas")) {
 					matric();
-				}else if(command.toLowerCase().contains("asignaturas")) {
+				} else if(command.toLowerCase().contains("asignaturas")) {
 					if( command.split(" ").length == 2 ||
 						command.split(" ").length == 3) {
 						if(command.split(" ").length == 3) {
 							System.out.println("Advertencia | Codigos ingnorados");
 							if(command.split(" ")[2].equalsIgnoreCase("a")) {
 								asignaturas(true, command.split(" ")[1]); // es "A"
-							}else { asignaturas(false, command.split(" ")[1]); } // es diferente a "A"
-						}else { asignaturas(false, command.split(" ")[1]); } // no contiene atributo
-					}else { esintaxis(command); }// error de sintaxis
-				}else if(command.toLowerCase().contains("alumnos")) {
+							} else { asignaturas(false, command.split(" ")[1]); } // es diferente a "A"
+						} else { asignaturas(false, command.split(" ")[1]); } // no contiene atributo
+					} else { esintaxis(command); }// error de sintaxis
+				} else if(command.toLowerCase().contains("alumnos")) {
 					if( command.split(" ").length == 2 ||
 							command.split(" ").length == 3) {
 							if(command.split(" ").length == 3) {
 								if(command.split(" ")[2].equalsIgnoreCase("a")) {
 									alumnos(true, command.split(" ")[1]); // es "A"
-								}else { alumnos(false, command.split(" ")[1]); } // es diferente a "A"
-							}else { alumnos(false, command.split(" ")[1]); } // no contiene atributo
-						}else { esintaxis(command); }// error de sintaxis
-				}else if(command.toLowerCase().contains("eliminar")) {
+								} else { alumnos(false, command.split(" ")[1]); } // es diferente a "A"
+							} else { alumnos(false, command.split(" ")[1]); } // no contiene atributo
+						} else { esintaxis(command); }// error de sintaxis
+				} else if(command.toLowerCase().contains("eliminar")) {
 					if( command.split(" ").length == 2 || // comprobacion de tamaño
 							command.split(" ").length == 3) {
 						if(command.split(" ").length == 3) { // si es 3 manda datos
 							eliminar(command.split(" ")[1],
 									 command.split(" ")[2]);
 						} else { eliminar(command.split(" ")[1],"false"); }	//manda datos				
-					}else { esintaxis(command); } // error sintaxis
-				}else if(command.toLowerCase().contains("matricular")) {
+					} else { esintaxis(command); } // error sintaxis
+				} else if(command.toLowerCase().contains("matricular")) {
 					if( command.split(" ").length == 2 || // si es 2 o 3
 							command.split(" ").length == 3) {
 						if(command.split(" ").length == 3) { 
 							matricular(command.split(" ")[1],
 									 command.split(" ")[2]);
 						} else { matricular(command.split(" ")[1],"false"); }					
-					}else { esintaxis(command); }					
-				}else if(command.equalsIgnoreCase("help")) {
+					} else { esintaxis(command); }					
+				} else if(command.equalsIgnoreCase("help")) {
 					Help.m1();
-				}else {
+				} else {
 					System.out.println("El comando \""+command+"\" no se encontro");
 				}
-			}else { // cuando command no es nada es que se ha saltado
+			} else { // cuando command no es nada es que se ha saltado
 				System.out.println("[Info] Usa help si no sabes que hacer");
 			}			
 		}	

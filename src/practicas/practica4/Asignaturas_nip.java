@@ -6,16 +6,21 @@ public class Asignaturas_nip implements Comparable<Asignaturas_nip> {
 	private int cod_asig;
 	private String asig;
 	
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Asignaturas_nip () {
 	}
 	
 	public Asignaturas_nip (int nip, int cod_asig, String asig) {
 		this.nip = nip;
 		this.cod_asig = cod_asig;
-		this.asig = asig;
-		
+		this.asig = asig;	
 	}
 
+	/**
+	 * GETERS AND SETERS
+	 */
 	public int getNip() {
 		return nip;
 	}

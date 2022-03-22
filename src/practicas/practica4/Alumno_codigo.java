@@ -6,6 +6,9 @@ public class Alumno_codigo implements Comparable<Alumno_codigo> {
 	private int nip;
 	private int codigo;
 	
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Alumno_codigo() {}
 	public Alumno_codigo(String alumno, int nip, int codigo) {
 		this.alumno = alumno;
@@ -13,6 +16,9 @@ public class Alumno_codigo implements Comparable<Alumno_codigo> {
 		this.codigo = codigo;	
 	}
 
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getAlumno() {
 		return alumno;
 	}
@@ -41,7 +47,6 @@ public class Alumno_codigo implements Comparable<Alumno_codigo> {
 		this.alumno = alumno;
 		this.nip = nip;
 		this.codigo = codigo;	
-		
 	}
 
 	@Override

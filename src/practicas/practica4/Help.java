@@ -10,7 +10,7 @@ public class Help {
 	 */
 	public static void m1() {
 		System.out.println("\r\n"
-				+ "• Matrículas  -- Informa del número total de matrículas de"
+				+ "• Matriculas  -- Informa del numero total de matrículas de"
 				+ " alumnos en diferentes asignaturas.");
 		System.out.println("\r\n"
 				+ "• Asignaturas {nip alumno} [A | C] "

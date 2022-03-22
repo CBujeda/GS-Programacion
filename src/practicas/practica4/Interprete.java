@@ -185,7 +185,7 @@ public class Interprete {
 		if(type == true) { Collections.sort(lasig_nip);
 		} else { lasig_nip = Organizadores.asignaturas_num_creciente(lasig_nip); }
 		if(existe == false) {
-			System.out.println("El alumno con el nip " + nip + " no existe");
+			System.out.println("El alumno con el nip " + nip + " no esta matriculado");
 		} else {
 			System.out.println("NIP ║ CODIGO ║ ASIGNATURA");
 			System.out.println("═══════════════════════════");

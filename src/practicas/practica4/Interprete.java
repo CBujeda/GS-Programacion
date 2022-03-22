@@ -71,8 +71,7 @@ public class Interprete {
 					if(AsigValid == true) {
 						// matricular 627867 30201,30202,30203,30204
 						// matricular 627867 30201,30202,30203,30204,30206
-						
-						// revisar -------------------------------
+						int cont = 0;
 						System.out.println("               NIP ║  CODIGO");
 						System.out.println("══════════════════════════════");
 						boolean existe = false;
@@ -93,6 +92,7 @@ public class Interprete {
 															  + " " + codigos[i]);
 								l.add(new Matricula(Integer.parseInt(nip)
 												   ,Integer.parseInt(codigos[i])));
+								cont++;
 							}else {
 								System.out.println("Matricula:    " + nip 
 										+ " " + codigos[i] + " ya existenete");
@@ -100,6 +100,8 @@ public class Interprete {
 						}
 						System.out.println("Escribiendo datos....");
 						Writter.matriculas(l); // escribiendo matriculas....
+						System.out.println("El alumno con el nip: " + nip
+										 + " se matriculo en " + cont + " asignaturas");
 					}else {
 						System.out.println("No se puedo ejecutar ya que "
 										 + "alguna asignatura es invalida");
@@ -235,6 +237,7 @@ public class Interprete {
 				+ " _/ // /|  / / / / /___/ _, _/ ____/ _, _/ /___  / / / /___   \r\n"
 				+ "/___/_/ |_/ /_/ /_____/_/ |_/_/   /_/ |_/_____/ /_/ /_____/   \r\n"
 				+ "________________________________________________________________");
+		System.out.println("   [help] > Ayuda de comandos \n");
 	}
 	
 	public static void console() {
@@ -293,7 +296,7 @@ public class Interprete {
 					System.out.println("El comando \""+command+"\" no se encontro");
 				}
 			}else { // cuando command no es nada es que se ha saltado
-				System.out.println("          ADVERTENCIA | Scanner se salto una toma");
+				System.out.println("[Info] Usa help si no sabes que hacer");
 			}			
 		}	
 	}

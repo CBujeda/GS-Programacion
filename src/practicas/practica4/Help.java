@@ -4,7 +4,7 @@ public class Help {
 	
 	public static void m1() {
 		System.out.println("\r\n"
-				+ "• Matrículas  - Informa del número total de matrículas de"
+				+ "• Matrículas  -- Informa del número total de matrículas de"
 				+ " alumnos en diferentes asignaturas.");
 		System.out.println("\r\n"
 				+ "• Asignaturas {nip alumno} [A | C] "
@@ -19,11 +19,18 @@ public class Help {
 				+ "	- [N] Orden por nip de alumno creciente\r\n"
 				+ "	- [ ] Orden por nip de alumno creciente");
 		System.out.println("\r\n"
-				+"• Eliminar nip { codigo } -- Elimina matriculaciones por asignatura\r\n"
+				+"• Eliminar {nip alumno} { codigo } -- Elimina matriculaciones por asignatura\r\n"
 				+ "	- {codigo} Elimina matriculaciones alumno por asignatura\r\n"
 				+ "		       - [EX:]  (LIST) {codigo} = 30201,30202,30203,30204\r\n"
 				+ "	- { } 	   Elimina todas las matriculaciones de un alumno");
-
+		System.out.println("\r\n"
+				+ "• Matricular { nip alumno } { codigo } -- Añade una nueva matricula no existente\r\n"
+				+ "	- {codigo} Lista de codigos de asignatura a matricular\r\n"
+				+ "		       - [EX:]  (LIST) {codigo} = 30201,30202,30203,30204"
+				+ "");
+		System.out.println("\r\n"
+				+ "• Fin / exit \r\n"
+				+ "	-Salir del interprete");
 		
 	}
 

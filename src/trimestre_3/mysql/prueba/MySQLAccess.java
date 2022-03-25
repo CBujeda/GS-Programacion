@@ -118,11 +118,7 @@ public class MySQLAccess {
 
 	/**
 	 * Pre: ---
-	 * Post: cerramos todas las conexiones abiertas, el resultSet
-	 * 		y el statement. Si no se cierran correctamente, puede
-	 * 		ocurrir que las consultas no devuelvan el resultado esperado.
-	 * 		Además, si dejamos muchas conexiones a la BD abiertas
-	 * 		podemos llegar a saturarla y no aceptará más conexiones. 
+	 * Post: cerramos todas las conexiones abiertas
 	 */
 	private void close() {
 		try {

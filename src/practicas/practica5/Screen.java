@@ -10,7 +10,15 @@ public class Screen {
 	public static int ancho() {// guardo variables en metodos
 		return 100;
 	}
-	
+	public static void sleep(int time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void space() {Screen.limpiador(Screen.rAlto()+4);}
 	public static void limpiador(int a) {
 		for(int i = 0; i < a; i++) {
 			System.out.println("");
@@ -54,7 +62,7 @@ public class Screen {
 		}
 		String stats = " " + data[0] + "♥ " + data[1] + "♦  " + data[2] + "Ᵽ " +
 						data[3] + "≈ | " + data[4] + "☺ " + data[5];
-		line(a," Vidas Dinero Poder Arma  |  Avatar y Character");
+		line(a," Vidas Puntos Poder Arma  |  Avatar y Character");
 		line(a,stats);
 	}
 	
@@ -138,29 +146,25 @@ public class Screen {
 	}
 	public static void linTop(int a) {
 		System.out.print("╔");
-		for(int i = 0; i < a; i++) {
-			System.out.print("═");
-		}
+		gual(a);
 		System.out.print("╗");
 		System.out.println();
 	}
 	
 	public static void linButton(int a) {
 		System.out.print("╚");
-		for(int i = 0; i < a; i++) {
-			System.out.print("═");
-		}
+		gual(a);
 		System.out.print("╝");
 		System.out.println();
 	}
 	public static void linMed(int a) {
 		System.out.print("╠");
-		for(int i = 0; i < a; i++) {
-			System.out.print("═");
-		}
+		gual(a);
 		System.out.print("╣");
 		System.out.println();
 	}
+	
+	//------------------
 	
 	//Comments metods
 	public static void lineComment(int a, String dato, String linea) {
@@ -175,9 +179,7 @@ public class Screen {
 		System.out.print("║");
 		System.out.print(linea.substring(0,1));;
 		System.out.print("╔");
-		for(int i = 0; i < a-4; i++) {
-			System.out.print("═");
-		}
+		gual(a-4);
 		System.out.print("╗");
 		System.out.print(linea.substring(linea.length()-1,linea.length()));;
 		System.out.print("║");
@@ -187,9 +189,7 @@ public class Screen {
 		System.out.print("║");
 		System.out.print(linea.substring(0,1));;
 		System.out.print("╚");
-		for(int i = 0; i < a-4; i++) {
-			System.out.print("═");
-		}
+		gual(a-4);
 		System.out.print("╝");
 		System.out.print(linea.substring(linea.length()-1,linea.length()));;
 		System.out.print("║");
@@ -210,6 +210,18 @@ public class Screen {
 		}
 		data = data + "║";
 		return data;
+	}
+	
+	// space metod
+	public static void space(int spaces) {
+		for(int i = 0; i < spaces ; i++) {
+			System.out.print(" ");
+		}
+	}
+	public static void gual(int spaces) {
+		for(int i = 0; i < spaces ; i++) {
+			System.out.print("═");
+		}
 	}
 	
 }

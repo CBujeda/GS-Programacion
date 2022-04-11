@@ -14,8 +14,10 @@ public class Animations {
 		Screen.view(adjust(),data);
 	}
 	
-	
-	// Metodo el cual devuelve la pantalla de carga
+	/**
+	 * Pre:
+	 * Post: Metodo el cual devuelve la pantalla de carga
+	 */
 	public static String[] charge () {
 		String[] dato = {
 				  "                                                                                                    ",

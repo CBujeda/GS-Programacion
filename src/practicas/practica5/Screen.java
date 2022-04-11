@@ -1,6 +1,10 @@
 package practicas.practica5;
 
 public class Screen {
+	/**
+	 * Pre:
+	 * Post: Metodos los cuales almacenan un valor predefinido
+	 */
 	public static int alto() {// guardo variables en metodos
 		return 25;
 	}

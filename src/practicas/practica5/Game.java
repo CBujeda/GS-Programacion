@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Game {
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo se encarga de crear el character
+	 */
 	public static void start(ArrayList<String[]> imgs,String[] stats ) {
 		SqlAccess bd = new SqlAccess();
 		ArrayList<Avatar> avatar = null;
@@ -21,9 +25,12 @@ public class Game {
 		Character player = new Character();
 		String name = "";
 		history1(imgs,stats);
+		Screen.space();
+		Screen.sleep(2000);
 		Screen.viewComment(imgs.get(6), stats, "Ahora elije un Nombre para tu character...");
 		name = Inicio.sc();
 		Screen.sleep(2000);
+		Screen.space();
 		Screen.viewComment(imgs.get(6), stats, "Ahora elije un Avatar para tu character...");
 		if(name.equalsIgnoreCase("")) {
 			name = "Lilya"; // nombre default
@@ -43,7 +50,7 @@ public class Game {
 			int data;
 			try {
 				data = Integer.parseInt(datos);
-			}catch(Exception e) {
+			} catch(Exception e) {
 				data = -1;
 			}
 			if(data >= 0 && data < avatar.size()) {
@@ -66,7 +73,7 @@ public class Game {
 			int data;
 			try {
 				data = Integer.parseInt(datos);
-			}catch(Exception e) {
+			} catch(Exception e) {
 				data = -1;
 			}
 			if(data >= 0 && data < arma.size()) {
@@ -91,7 +98,7 @@ public class Game {
 			int data;
 			try {
 				data = Integer.parseInt(datos);
-			}catch(Exception e) {
+			} catch(Exception e) {
 				data = -1;
 			}
 			if(data >= 0 && data < poder.size()) {
@@ -101,7 +108,12 @@ public class Game {
 		player.setPoder(poder.get(Integer.parseInt(datos)));
 		play(imgs, stats,player,pregunta);
 	}
-
+	
+	/**
+	 * Pre:
+	 * Post: Dicho metod ejecuta el juego posteriormente de haber creado
+	 * 		 el character
+	 */
 	public static void play(ArrayList<String[]> imgs,String[] stats,Character player,ArrayList<Pregunta> pregunta) {
 		stats[0] = Integer.toString(player.getAvatar().getVida());
 		stats[1] = "100";
@@ -120,20 +132,52 @@ public class Game {
 					perdido = true;
 					break;
 				}
-			}catch(Exception e) {
+			} catch(Exception e) {
 				Screen.viewComment(imgs.get(0), stats, "ERROR INESPERADO");
 				Screen.sleep(1000);
 			}
 		}
 		if(perdido == false) {
-			Screen.viewComment(imgs.get(0), stats, "HAS GANADO!  -  Puntos" + stats[1]);
+			Screen.viewComment(imgs.get(0), stats, "HAS GANADO!  -  Puntos " + stats[1]);
 			Screen.sleep(1000);
 		}
+		SqlAccess bd = new SqlAccess();
 		
+			try {
+				bd.setRank(new RankPorf(player.getName()
+										,Integer.parseInt(stats[0])
+										,Integer.parseInt(stats[1])));
+			} catch (NumberFormatException e1) {
+				e1.printStackTrace();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+				System.out.println("[ERROR] Se produjo un error al actualizar datos");
+			}
 		
+		ArrayList<RankPorf> rank = null;
+		try {
+			rank = bd.getRank();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		rank  = orderRank(rank);
+		String[] ranking = new String[rank.size()];
+		for(int i = 0; i < ranking.length; i++) {
+			ranking[i] = "["+i+"] " + rank.get(i).getName()
+						+ "       " + rank.get(i).getVida()
+						+ "♥       " + rank.get(i).getPuntos() + "♦";
+		}
+		Screen.space();
+		Screen.view(ranking, stats);
+		Inicio.sc();
 		
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Dicho metodo muestra una pregunta por vez
+	 */
 	public static String[] pregunta(ArrayList<String[]> imgs,String[] stats,Character player,Pregunta pregunta) {
 		int prandom;
 		while(true) {
@@ -154,7 +198,7 @@ public class Game {
 			if(prandom < 5) {
 				Screen.viewComment(imgs.get(0), stats,"Respuestas: [1]:"
 						+ pregunta.getCorrecta() + " - [2]: " + pregunta.getIncorrecta());
-			}else {
+			} else {
 				Screen.viewComment(imgs.get(0), stats,"Respuestas: [1]:"
 						+ pregunta.getIncorrecta() + " - [2]: " + pregunta.getCorrecta());
 			}
@@ -164,20 +208,20 @@ public class Game {
 				if(prandom < 5) {
 					Screen.viewComment(imgs.get(0), stats,"Respuesta Correcta!");
 					correcta = true; 
-				}else {
+				} else {
 					Screen.viewComment(imgs.get(0), stats,"Respuesta Incorrecta");
 				}
 				break;
-			}else if(entrada.equalsIgnoreCase("2")) {
+			} else if(entrada.equalsIgnoreCase("2")) {
 				Screen.space();
 				if(prandom < 5) {
 					Screen.viewComment(imgs.get(0), stats,"Respuesta Incorrecta!");
-				}else {
+				} else {
 					Screen.viewComment(imgs.get(0), stats,"Respuesta Correcta");
 					correcta = true;
 				}
 				break;
-			}else {
+			} else {
 				Screen.space();
 				Screen.viewComment(imgs.get(0), stats,"Respuesta no valida");
 			}
@@ -188,10 +232,10 @@ public class Game {
 						Integer.parseInt(stats[1]) + 
 						player.getPoder().getDanno() + 
 						player.getArma().getDanno());
-			}else {
-				stats[0] = Integer.toString(Integer.parseInt(stats[0]) - 100 + player.getPoder().getDefensa()-50);
+			} else {
+				stats[0] = Integer.toString(Integer.parseInt(stats[0]) + player.getPoder().getDefensa() - 300);
 			}
-		}catch(Exception e) {
+		} catch(Exception e) {
 			Screen.viewComment(imgs.get(0), stats, "ERROR INESPERADO");
 		}
 		
@@ -200,6 +244,10 @@ public class Game {
 		return stats;
 	}
 	
+	/**
+	 * Pre: 
+	 * Post: Dicho metodo muestra la historia del juego
+	 */
 	public static void history1(ArrayList<String[]> imgs,String[] stats) {
 		Screen.space();
 		Screen.viewComment(imgs.get(0), stats, "Hace mucho tiempo...");
@@ -221,4 +269,24 @@ public class Game {
 		Screen.sleep(2000);
 		Screen.space();
 	}
+	
+	public static ArrayList<RankPorf> orderRank(ArrayList<RankPorf> rank) {
+		RankPorf temp = new RankPorf();
+		for(int i = 0; i < rank.size(); i++) {
+			for(int j = i+1; j < rank.size(); j++) {
+				if(rank.get(i).getPuntos() < rank.get(j).getPuntos()) {
+					temp.setAll(rank.get(j).getName(),
+								rank.get(j).getVida(), 
+								rank.get(j).getPuntos());
+					rank.get(j).setAll( rank.get(i).getName(),
+										rank.get(i).getVida(),
+										rank.get(i).getPuntos());
+					rank.get(i).setAll( temp.getName(),
+										temp.getVida(), 
+										temp.getPuntos());
+				}
+			}
+		}
+		return rank;
+	}	
 }

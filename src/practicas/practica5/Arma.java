@@ -9,6 +9,10 @@ public class Arma {
 		this.name = name;
 		this.danno = danno;
 	}
+	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getName() {
 		return name;
 	}

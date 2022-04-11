@@ -2,23 +2,20 @@ package practicas.practica5;
 
 public class Animations {
 	
-	public static void logo() {
-		
-	}
+	// IMAGENES PRE GUARDADAS
 	// ║═ ╗╔ ╝╚ ╠ ╣
 	
-	
-	
-
-	
+	/**
+	 * Pre:
+	 * Post: dicho metodo muestra la imagen de ajuste
+	 */
 	public static void ajustar(String[] data) {
 
 		Screen.view(adjust(),data);
 	}
 	
-	// pre imgs
 	
-	//Charge
+	// Metodo el cual devuelve la pantalla de carga
 	public static String[] charge () {
 		String[] dato = {
 				  "                                                                                                    ",
@@ -38,7 +35,11 @@ public class Animations {
 		};
 		return dato;
 	}
-	// ajustar pantalla
+
+	/**
+	 * Pre:
+	 * Post: Metodo el cual devuelve la pantalla de ajuste
+	 */
 	public static String[] adjust () {
 		String[] dato1 = {
 				 "                                                                                                    ",

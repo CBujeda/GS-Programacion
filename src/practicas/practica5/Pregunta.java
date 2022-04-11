@@ -11,6 +11,10 @@ public class Pregunta {
 		this.correcta = correcta;
 		this.incorrecta = incorrecta;
 	}
+	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getPregunta() {
 		return pregunta;
 	}

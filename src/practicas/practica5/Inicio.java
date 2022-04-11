@@ -13,6 +13,21 @@ public class Inicio {
 		return dato;
 	}
 	
+	public static int scInt() {
+		Scanner scInt  = new Scanner(System.in);
+		int dato = 0;
+		while(true) {
+			try {
+				System.out.print("[ENTERO]> ");
+				dato = scInt.nextInt();
+				break;
+			}catch (Exception e) {
+				System.out.println("[ADVERTENCIA] Valor erroneo");
+			}
+		}
+		return dato;
+	}
+	
 	public static void main(String[] arg) {
 		String[] stats = new String[6];
 		Screen.view(Animations.charge(), stats);
@@ -47,7 +62,7 @@ public class Inicio {
 			} else if (dat.equalsIgnoreCase("1")) {
 				Game.start(imgs, stats);
 			} else if (dat.equalsIgnoreCase("2")) {
-				
+				AddData.inicio(imgs,stats);
 			}
 		}
 	}

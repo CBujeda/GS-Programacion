@@ -31,6 +31,10 @@ public class RankPorf {
 		this.puntos = puntos;
 	}
 	
-	
+	public void setAll(String name, int vida, int puntos) {
+		this.name = name;
+		this.vida = vida;
+		this.puntos = puntos;
+	}
 	
 }

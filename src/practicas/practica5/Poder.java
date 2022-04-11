@@ -12,6 +12,10 @@ public class Poder {
 		this.danno = danno;
 		this.defensa = defensa;
 	}
+	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getName() {
 		return name;
 	}

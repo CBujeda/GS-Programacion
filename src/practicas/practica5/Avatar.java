@@ -9,6 +9,10 @@ public class Avatar {
 		this.name = name;
 		this.vida = vida;
 	}
+	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getName() {
 		return name;
 	}

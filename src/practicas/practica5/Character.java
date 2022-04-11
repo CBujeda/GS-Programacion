@@ -14,6 +14,10 @@ public class Character {
 		this.arma = arma;
 		this.poder = poder;
 	}
+	
+	/**
+	 * GETERS AND SETERS 
+	 */
 	public String getName() {
 		return name;
 	}

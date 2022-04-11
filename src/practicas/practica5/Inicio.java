@@ -7,12 +7,20 @@ import trimestre_3.mysql.prueba.MySQLAccess;
 
 public class Inicio {
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual solicita una entrada al usuario de tipo string
+	 */
 	public static String sc() {
 		Scanner sc  = new Scanner(System.in);
 		String dato = sc.nextLine();
 		return dato;
 	}
 	
+	/**
+	 * Pre: 
+	 * Post:  Metodo el cual solicita una entrada al usuario de tipo int
+	 */
 	public static int scInt() {
 		Scanner scInt  = new Scanner(System.in);
 		int dato = 0;
@@ -28,6 +36,11 @@ public class Inicio {
 		return dato;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo principal el cual ejecuta todas las acciones del programa asi como
+	 * 		 el menu principal
+	 */
 	public static void main(String[] arg) {
 		String[] stats = new String[6];
 		Screen.view(Animations.charge(), stats);

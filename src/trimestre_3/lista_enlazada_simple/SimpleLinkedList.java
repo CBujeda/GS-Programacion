@@ -105,12 +105,43 @@ public class SimpleLinkedList {
 		return size;
 	}
 	
-	public void show() {
+	public Node get(int position) {
+		try {
+			if(position < size && position >= 0) {
+				Node p = first;
+				for(int i = 0 ; i < position ; i++) {
+					p = p.getNext();
+				}
+				return p;
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());	
+		} return null;
+	}
+	
+	/* Shows */
+	
+	public void show(int position) {show(position, true);   }
+	public void show(int position, boolean ln) {
+		Node d = get(position);
+		if(d != null) {
+			System.out.print("("+position+")[ "+d.getContent()+" ]"); 
+		}else {
+			System.out.print("(?"+position+")[ "+null+" ]"); 
+		}
+		if(ln == true) {
+			System.out.println();
+		}
+	}
+	public void show() {show(true);}
+	public void show(boolean ln) {
 		Node p = first;
 		for(int i = 0; i < size; i++) {
 			System.out.print("("+i+")[ "+p.getContent()+" ] -> ");
 			p = p.getNext();
 		}
-		System.out.println();
+		if(ln == true) {
+			System.out.println();
+		}
 	}
 }

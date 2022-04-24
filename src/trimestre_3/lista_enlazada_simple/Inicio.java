@@ -11,5 +11,8 @@ public class Inicio {
 		l.show();
 		l.delete(3);
 		l.show();
+		l.show(8);
+		System.out.println(l.get(1));
+		System.out.println("Hola");
 	}
 }

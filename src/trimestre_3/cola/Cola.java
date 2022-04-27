@@ -1,6 +1,6 @@
 package trimestre_3.cola;
 
-import trimestre_3.stack.Node;
+
 
 public class Cola {
 
@@ -50,14 +50,11 @@ public class Cola {
 				last = node;
 				size++;
 				return true;
-			}else if( size == 1) {
-				node.setNext(first);
-				last = node;
-				size++;
-				return true;
 			}else {
-				node.setNext(last);
-				node = last;
+				Node p = last;
+				p.setNext(node);
+				last = node;
+				
 				size++;
 				return true;
 			}
@@ -68,13 +65,19 @@ public class Cola {
 	}
 	
 	public Node pop() {
-		
-		Node p = last;
-		for(int i = 0; i < size-1; i++) {
-		 p = p.getNext();	
+		Node p = null; 
+		try {
+			if(size > 0) {
+				p = first;
+				first = first.getNext();
+				size--;
+			}else {
+				System.out.println("(X) [NO POP] NO DATA");
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());
 		}
-		first = p;
-		return first;	
+		return p;	
 	}
 
 	
@@ -83,6 +86,24 @@ public class Cola {
 			return false;
 		}else {
 			return true;
+		}
+	}
+	
+	public void show() {show(true);}
+	public void show(boolean ln) {
+		if(size > 0) {
+			Node p = first;
+			System.out.print("(First)");
+			for(int i = 0; i < size; i++) {
+				System.out.print("[ "+p.getContent()+" ]");
+				p = p.getNext();
+			}
+			System.out.print("(Last)");
+			if(ln == true) {
+				System.out.println();
+			}
+		} else {
+			System.out.println("(X) [NO SHOW] NO DATA");
 		}
 	}
 }

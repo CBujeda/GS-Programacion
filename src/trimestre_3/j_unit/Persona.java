@@ -25,6 +25,8 @@ public class Persona {
 		this.sueldo = sueldo;
 	}
 	
+	
+	// este metodo siempre tiene que estar
 	@Override
 	public boolean equals(Object o) {
 		Persona p = (Persona) o;

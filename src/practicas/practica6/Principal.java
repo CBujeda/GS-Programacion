@@ -3,8 +3,11 @@ package practicas.practica6;
 import practicas.practica6.node_Pasajeros.Node;
 
 public class Principal {
-	
-	
+
+	/**
+	 * Pre: 
+	 * Post: Metodo principal el cual ejecuta la mayor parte de la ejecucion
+	 */
 	public static void inicio() {
 		
 		Cola c = new Cola();

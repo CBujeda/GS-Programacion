@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Inicio {
 	
+	/**
+	 * Pre: 
+	 * Post: Metodo el cual Solicita un dato int y lo devuelve
+	 */
 	public static int scInt() {
 		Scanner sc = new Scanner(System.in);
 		int data = 0;
@@ -16,7 +20,11 @@ public class Inicio {
 		}
 		return data;
 	}
-	
+
+	/**
+	 * Pre: 
+	 * Post: Metodo el cual solicita un dato String y lo devuelve
+	 */
 	public static String scStr() {
 		Scanner sc = new Scanner(System.in);
 		String data = sc.nextLine();
@@ -25,7 +33,11 @@ public class Inicio {
 		}
 		return data;
 	}
-	
+
+	/**
+	 * Pre: 
+	 * Post: Metodo el cual hace una pausa de los milisegundos que le indiquen
+	 */
 	public static void sleep(int milisegundos) {
 		try {
 			Thread.sleep(milisegundos);
@@ -34,20 +46,32 @@ public class Inicio {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Pre: 
+	 * Post: Metodo el cual hace tantos espacios cono se le indiquen
+	 */
 	public static void spaces(int lines) {
 		for(int i = 0; i < lines; i++) {
 			System.out.println();
 		}
 	}
-	
+
+	/**
+	 * Pre: 
+	 * Post: Metodo el cual hace tantos puntos como se le indiquen
+	 */
 	public static void puntos(int cantidad) {
 		for(int i = 0; i < cantidad; i++) {
 			System.out.print(".");
 			sleep(15);
 		}
 	}
-	
+
+	/**
+	 * Pre: 
+	 * Post: Metodo inicial el cual llama a principal
+	 */
 	public static void main(String[] main) {
 		
 		System.out.println(

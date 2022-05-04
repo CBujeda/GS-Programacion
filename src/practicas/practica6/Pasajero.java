@@ -5,9 +5,11 @@ public class Pasajero {
 	private String nombre;
 	private String dni;
 	private int numero_vuelo;
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Pasajero() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Pasajero(String nombre, String dni, int numero_vuelo) {
 		super();
@@ -15,6 +17,10 @@ public class Pasajero {
 		this.dni = dni;
 		this.numero_vuelo = numero_vuelo;
 	}
+	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getNombre() {
 		return nombre;
 	}

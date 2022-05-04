@@ -5,9 +5,11 @@ public class Avion {
 	private String nombre;
 	private int id_avion;
 	private Lemb embarcados;
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Avion() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Avion(String nombre, int id_avion, Lemb embarcados) {
 		super();
@@ -15,6 +17,9 @@ public class Avion {
 		this.id_avion = id_avion;
 		this.embarcados = embarcados;
 	}
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -34,6 +39,10 @@ public class Avion {
 		this.embarcados = embarcados;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra los datos que contiene avion
+	 */
 	public String dataString() {
 		return "Avion [Nombre= " + nombre + ", id_avion= " + id_avion + ", "+ embarcados +"] \n";
 	}

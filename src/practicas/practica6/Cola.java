@@ -1,13 +1,17 @@
 package practicas.practica6;
 
 import practicas.practica6.node_Pasajeros.Node;
-
+/**
+ * Clase la cual hace una lista de tipo cola
+ */
 public class Cola {
 	private Node first;
 	private Node last;
 	private int size = 0 ;
 	
-	
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Cola() {
 		super();
 	}
@@ -16,7 +20,10 @@ public class Cola {
 		this.first = first;
 		this.last = last;
 	}
-
+	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public Node getFirst() {
 		return first;
 	}
@@ -41,6 +48,10 @@ public class Cola {
 		this.size = size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo a la cola
+	 */
 	public boolean push(Node node) {
 		
 		try {
@@ -63,6 +74,10 @@ public class Cola {
 		}	
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual saca un nodo de la cola
+	 */
 	public Node pop() {
 		Node p = null; 
 		try {
@@ -79,7 +94,10 @@ public class Cola {
 		return p;	
 	}
 
-	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual indica si existen nodos en la cola
+	 */
 	public boolean isEmpty() {
 		if(size == 0) {
 			return false;
@@ -88,6 +106,10 @@ public class Cola {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodos show: muestran el contenido de la cola
+	 */
 	public void show() {show(true);}
 	public void show(boolean ln) {
 		if(size > 0) {

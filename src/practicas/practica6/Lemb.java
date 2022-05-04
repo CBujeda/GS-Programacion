@@ -9,6 +9,10 @@ public class Lemb {
 
 	private Node first;
 	private int size;
+	
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Lemb() {
 		this.first = null;
 		this.size = 0;
@@ -19,6 +23,9 @@ public class Lemb {
 		this.size = 1;
 	}
 
+	/**
+	 * GETERS AND SETERS
+	 */
 	public Node getFirst() {
 		return first;
 	}
@@ -35,6 +42,10 @@ public class Lemb {
 		this.size = size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo al final de la lista
+	 */
 	public boolean add(Node node) {
 		try {
 			if(size == 0) { // si size es 0 el nuevo nodo sera first
@@ -52,6 +63,10 @@ public class Lemb {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo en una posicion predeterminada
+	 */
 	public boolean add(int position, Node node) {
 		try {
 			if(position == 0) {
@@ -76,6 +91,10 @@ public class Lemb {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual elimina un nodo de una posicion predeterminada
+	 */
 	public boolean delete(int position) {
 		try {
 			if(position == 0) {
@@ -106,10 +125,18 @@ public class Lemb {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Devuelve el tamaño de la lista
+	 */
 	public int size() {
 		return size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: metodo el cual obtienes un nodo de la lista
+	 */
 	public Node get(int position) {
 		try {
 			if(position < size && position >= 0) {
@@ -125,7 +152,10 @@ public class Lemb {
 	}
 	
 	/* Shows */
-	
+	/**
+	 * Pre:
+	 * Post: Metodos show: Muestran los datos de la lista
+	 */
 	public void show(int position) {show(position, true);   }
 	public void show(int position, boolean ln) {
 		Node d = get(position);

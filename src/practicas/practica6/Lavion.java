@@ -1,11 +1,16 @@
 package practicas.practica6;
 
 import practicas.practica6.node_Aviones.Node;
-
+/**
+ * Clase la cual hace una lista simple
+ */
 public class Lavion {
 	
 	private Node first;
 	private int size;
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Lavion() {
 		this.first = null;
 		this.size = 0;
@@ -16,6 +21,9 @@ public class Lavion {
 		this.size = 1;
 	}
 
+	/**
+	 * GETERS AND SETERS
+	 */
 	public Node getFirst() {
 		return first;
 	}
@@ -32,6 +40,10 @@ public class Lavion {
 		this.size = size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo al final de la lista
+	 */
 	public boolean add(Node node) {
 		try {
 			if(size == 0) { // si size es 0 el nuevo nodo sera first
@@ -49,6 +61,10 @@ public class Lavion {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo en una posicion predeterminada
+	 */
 	public boolean add(int position, Node node) {
 		try {
 			if(position == 0) {
@@ -73,6 +89,10 @@ public class Lavion {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual elimina un nodo de una posicion predeterminada
+	 */
 	public boolean delete(int position) {
 		try {
 			if(position == 0) {
@@ -103,10 +123,18 @@ public class Lavion {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Devuelve el tamaño de la lista
+	 */
 	public int size() {
 		return size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: metodo el cual obtienes un nodo de la lista
+	 */
 	public Node get(int position) {
 		try {
 			if(position < size && position >= 0) {
@@ -122,7 +150,10 @@ public class Lavion {
 	}
 	
 	/* Shows */
-	
+	/**
+	 * Pre:
+	 * Post: Metodos show: Muestran los datos de la lista
+	 */
 	public void show(int position) {show(position, true);   }
 	public void show(int position, boolean ln) {
 		Node d = get(position);
@@ -147,6 +178,10 @@ public class Lavion {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra los aviones con sus embarques
+	 */
 	public void showEmbarque() {
 		Node p = first;
 		for(int i = 0; i < size; i++) {

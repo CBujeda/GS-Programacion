@@ -6,9 +6,16 @@ public class Pila {
 	
 	private int size;
 	private Node last;
+	/**
+	 * CONSTRUCTOR
+	 */
 	public Pila() {
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo a una pila
+	 */
 	public boolean push(Node node) {
 		try {
 			if(size == 0) {
@@ -24,6 +31,10 @@ public class Pila {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual saca un nodo de la pila
+	 */
 	public Node pop() {
 		Node p = last;
 		last = last.getNext();
@@ -31,6 +42,10 @@ public class Pila {
 		return p;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual indica si existen nodos en la pila
+	 */
 	public boolean isEmpty() {
 		if(size == 0) {
 			return false;
@@ -39,7 +54,9 @@ public class Pila {
 		}
 	}
 
-	
+	/**
+	 * GETERS AND SETERS
+	 */
 	public int getSize() {
 		return size;
 	}

@@ -15,7 +15,7 @@ public class Principal {
 		Lavion av = new Lavion();
 		System.out.println("Aviones disponibles");
 		av.add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",123,new Lemb ()), null));
-		av.add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",023,new Lemb ()), null));
+		av.add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",19,new Lemb ()), null));
 		av.show();
 		System.out.println("[NOTA] Debera elegir un avion al presentarse en recepcion");
 		int numero = 0;
@@ -92,7 +92,7 @@ public class Principal {
 								" - Pasajeros embarcados " + numero);
 		}
 		Inicio.puntos(59);
-		System.out.println("Acaban de embarcar los diferentes pasageros en sus aviones");
+		System.out.println("\nAcaban de embarcar los diferentes pasageros en sus aviones");
 		Inicio.puntos(59);
 		System.out.println("\n");
 		av.showEmbarque();

@@ -10,18 +10,16 @@ public class Principal {
 	 */
 	public static void inicio() {
 		
-		Cola c = new Cola();
-		Pila p = new Pila();
-		Lavion av = new Lavion();
+		Aeropuerto a = new Aeropuerto();
 		System.out.println("Aviones disponibles");
-		av.add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",123,new Lemb ()), null));
-		av.add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",19,new Lemb ()), null));
-		av.show();
+		a.getAv().add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",123,new Lemb ()), null));
+		a.getAv().add(new practicas.practica6.node_Aviones.Node(new Avion("La Maria",19,new Lemb ()), null));
+		a.avView();
 		System.out.println("[NOTA] Debera elegir un avion al presentarse en recepcion");
 		int numero = 0;
 		while(true) {
 			 
-			if(p.getSize() >= 3 && c.getSize() >= 2) {
+			if(a.getP().getSize() >= 3 && a.getC().getSize() >= 2) {
 				Inicio.puntos(59);
 				System.out.println("\nNo hay capacidad para mas pasajeros");
 				Inicio.puntos(59);
@@ -43,8 +41,8 @@ public class Principal {
 				System.out.print("Numero de vuelo (Avion):");
 				nv = Inicio.scInt();
 				boolean alguno = false;
-				for(int i = 0; i < av.size(); i++) {
-					if(av.get(i).getContent().getId_avion() == nv) {
+				for(int i = 0; i < a.getAv().size(); i++) {
+					if(a.getAv().get(i).getContent().getId_avion() == nv) {
 						alguno = true;
 					}
 				}
@@ -54,48 +52,24 @@ public class Principal {
 					System.out.println("Recepcionista: No existe ningun avion con ese numero");
 				}
 			}
-			if(c.getSize() < 2) {
-				c.push(new Node(new Pasajero(name,dni,nv), null));
-				System.out.println("Entraste en la Cola");
-			}else if(p.getSize() < 3) {
-				System.out.println("Entraste en la Pila");
-				p.push(new Node(new Pasajero(name,dni,nv), null));
-			}
+			
+			a.addPasajero(new Pasajero(name,dni,nv));
 		}
 		Inicio.puntos(59);
 		System.out.println("\nLa recepcionista decide ver la Cola de Pasajeros: ");
-		System.out.println(c);
+		System.out.println(a.getC());
 		System.out.println("\nLa recepcionista decide ver la Pila de Pasajeros: ");
-		System.out.println(p);
+		System.out.println(a.getP());
 		Inicio.puntos(59);
 		System.out.println("\nLos pasajeros han comenzado a embarcar");
-		numero = 0;
-		while(true) {
-			numero++;
-			Pasajero temp = null;
-			if(c.getSize() != 0) {
-				temp = c.pop().getContent();
-			}else if(p.getSize() != 0) {
-				temp = p.pop().getContent();
-			}else {
-				break;
-			}
-			
-			for(int i = 0; i < av.size(); i++) {
-				if(av.get(i).getContent().getId_avion() == temp.getNumero_vuelo()) {
-					av.get(i).getContent().getEmbarcados().add(new Node(temp, null));
-				}
-			}
-			System.out.println(
-					"Acaba de embarcar " + 
-							temp.getNombre() + 
-								" - Pasajeros embarcados " + numero);
-		}
+		
+		a.embarque();
+		
 		Inicio.puntos(59);
 		System.out.println("\nAcaban de embarcar los diferentes pasageros en sus aviones");
 		Inicio.puntos(59);
 		System.out.println("\n");
-		av.showEmbarque();
+		a.getAv().showEmbarque();
 		
 	}
 

@@ -50,56 +50,24 @@ public class Lista_Socios {
 	public void addOrden(Nodo_Socio node) {
 			Nodo_Socio p = first;
 		if(size > 1) {
-			
-			int[][] data = new int[size][2];
 			for(int i = 0; i < size; i++) {
-				data[i][0] = i;
-				data[i][1] = p.compareTo(node);
-				System.out.println(p.compareTo(node) + "  Nombre: " + p.getContent().getNombre() );
 				
-				p = p.getNext();
+					System.out.println(p.getNext().compareTo(node));
+					if(p.getNext().compareTo(node) <= 0) {
+						add(i,node);
+						break;
+					}
+					p = p.getNext();
+				// revisar
 			}
-			for(int i = 0; i < data.length; i++) {
-					for(int r = i+1; r < data.length ; r++) {
-						int temp;
-						if(data[i][1] < data[r][1]) {
-							temp = data[i][0];
-							data[i][0] = data[r][0];
-							data[r][0] = temp;
-							
-							temp = data[i][1];
-							data[i][1] = data[r][1];
-							data[r][1] = temp;	
-						}	
-					}	
-			}
-			int posicion = -1;
-			for(int i = 0; i < data.length; i++) {
-				System.out.print("| " + data[i][0] + " | " + data[i][1] + " |");
-				
-				if(data[i][1] >= 0) {
-					System.out.println("<");
-					posicion = data[i][0];
-					//break;
-				}else {
-					System.out.println();
-				}
-				
-			}
-			System.out.println(posicion);
-			add(posicion,node);
-			//show(posicion);
-			show();
-		} else if(size == 0) {
-			add(node);
-		} else if (size == 1) {
-			if(p.compareTo(node) <0) {
+		} else if(size == 1){
+			if(first.compareTo(node) <= 0) {
+				add(1,node);	
+			} else {
 				add(0,node);
-			}else {
-				add(1,node);
 			}
-			
-			
+		} else {
+			add(node);
 		}
 		show();
 	}

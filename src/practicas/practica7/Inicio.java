@@ -6,11 +6,13 @@ public class Inicio {
 		
 		Club c = new Club("Marias");
 		c.addSocio(new Socio("nara"));
-		c.addSocio(new Socio("Noa"));
 		c.addSocio(new Socio("andrea"));
+		c.addSocio(new Socio("Noa"));
 		c.addSocio(new Socio("Laurencia"));
 		c.addSocio(new Socio("Sara"));
 		c.addSocio(new Socio("julia"));
+		
+		
 		//c.getConjunto_socios().show();
 		/*
 		Club c2 = new Club("Saras");

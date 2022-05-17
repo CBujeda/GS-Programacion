@@ -16,6 +16,10 @@ public class Club {
 		this.conjunto_socios = new Lista_Socios();
 	}
 	
+	public void viewSocios() {
+		conjunto_socios.show();
+	}
+	
 	public void addSocio(Socio socio) {
 		conjunto_socios.addOrden(new Nodo_Socio(socio,null) );
 	}

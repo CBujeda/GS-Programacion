@@ -1,23 +1,24 @@
-package practicas.practica7;
+package trimestre_3.les_revisado;
 
-public class Lista_Socios {
-	private Nodo_Socio first;
+public class SimpleLinkedList {
+
+	private Node first;
 	private int size;
-	public Lista_Socios() {
+	public SimpleLinkedList() {
 		this.first = null;
 		this.size = 0;
 	}
 	
-	public Lista_Socios(Nodo_Socio first) {
+	public SimpleLinkedList(Node first) {
 		this.first = first;
 		this.size = 1;
 	}
 
-	public Nodo_Socio getFirst() {
+	public Node getFirst() {
 		return first;
 	}
 
-	public void setFirst(Nodo_Socio first) {
+	public void setFirst(Node first) {
 		this.first = first;
 	}
 
@@ -29,12 +30,12 @@ public class Lista_Socios {
 		this.size = size;
 	}
 	
-	public boolean add(Nodo_Socio node) {
+	public boolean add(Node node) {
 		try {
 			if(size == 0) { // si size es 0 el nuevo nodo sera first
 				first = node;
 			} else {
-				Nodo_Socio p = first; // p apunta a first
+				Node p = first; // p apunta a first
 				for(int i = 1; i < size; i++) {
 					p = p.getNext(); // apuntas al siguiente y te vuelves el siguiente
 				} p.setNext(node); // Creamos un nodo en el siguiente al ultimo
@@ -46,28 +47,7 @@ public class Lista_Socios {
 		}
 	}
 	
-	public void addOrden(Nodo_Socio node) {
-		Nodo_Socio p = first;
-		if(size > 0) {
-			boolean fin = true;
-			for(int i = 0; i < size; i++) {
-					if(p.compareTo(node) >= 0) {						
-						add(i,node);
-						fin = false;
-						break;
-					}
-					p = p.getNext();
-			}
-			if(fin == true) {
-				add(node);
-			}
-		} else if(size == 0) {
-			add(node);
-		}
-	}
-	
-	
-	public boolean add(int position, Nodo_Socio node) {
+	public boolean add(int position, Node node) {
 		try {
 			if(position == 0) {
 				node.setNext(first);
@@ -77,7 +57,7 @@ public class Lista_Socios {
 			} else if (position == size) {
 				return add(node);
 			}else {
-				Nodo_Socio p = first;
+				Node p = first;
 				for(int i = 1; i < position; i++) {
 						p = p.getNext();
 				}
@@ -99,7 +79,7 @@ public class Lista_Socios {
 				size--;
 				return true;
 			} else if (position == size) {
-				Nodo_Socio p = first;
+				Node p = first;
 				for(int i = 1; i < position; i++) {
 						p = p.getNext();
 				}
@@ -107,7 +87,7 @@ public class Lista_Socios {
 				size--;
 				return true;
 			}else {
-				Nodo_Socio p = first;
+				Node p = first;
 				for(int i = 1; i < position; i++) {
 						p = p.getNext();
 				}
@@ -126,10 +106,10 @@ public class Lista_Socios {
 		return size;
 	}
 	
-	public Nodo_Socio get(int position) {
+	public Node get(int position) {
 		try {
 			if(position < size && position >= 0) {
-				Nodo_Socio p = first;
+				Node p = first;
 				for(int i = 0 ; i < position ; i++) {
 					p = p.getNext();
 				}
@@ -144,7 +124,7 @@ public class Lista_Socios {
 	
 	public void show(int position) {show(position, true);   }
 	public void show(int position, boolean ln) {
-		Nodo_Socio d = get(position);
+		Node d = get(position);
 		if(d != null) {
 			System.out.print("("+position+")[ "+d.getContent()+" ]"); 
 		}else {
@@ -154,19 +134,15 @@ public class Lista_Socios {
 			System.out.println();
 		}
 	}
-	public void show() {
-		Nodo_Socio p = first;
+	public void show() {show(true);}
+	public void show(boolean ln) {
+		Node p = first;
 		for(int i = 0; i < size; i++) {
-			System.out.print("("+i+")[ "+p.getContent()+" ] ->  \n");
+			System.out.print("("+i+")[ "+p.getContent()+" ] -> ");
 			p = p.getNext();
 		}
-		System.out.println();
+		if(ln == true) {
+			System.out.println();
+		}
 	}
-
-	@Override
-	public String toString() {
-		return "Lista_Socios > \n" + first;
-	}
-	
-	
 }

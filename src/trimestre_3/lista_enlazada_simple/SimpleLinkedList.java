@@ -52,6 +52,7 @@ public class SimpleLinkedList {
 			if(position == 0) {
 				node.setNext(first);
 				first = node;
+				size++;
 				return true;
 			} else if (position == size) {
 				return add(node);

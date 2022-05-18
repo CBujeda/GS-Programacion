@@ -8,6 +8,14 @@ import java.util.Scanner;
 
 public class Inicio {
 	
+	// revisar añadir al menu juntar clubs
+	
+	//----------------------------------------------
+	/**
+	 * Pre:
+	 * Post: Metodo el cual solicita al usuario introducir un string
+	 * 		 y lo devuelve.
+	 */
 	public static String scStr() {
 		Scanner sc = new Scanner(System.in);
 		String data; 
@@ -21,26 +29,46 @@ public class Inicio {
 		return data;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra 3 Sysos
+	 */
 	public static void clear() {
 		for(int i = 0; i < 3; i++) {
 			System.out.println();
 		}
 	}
-
+	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual muestra los datos de la lista de clubes
+	 */
 	public static void showData(Lista_Clubes lc) {
 		for(int i = 0; i < lc.size(); i++) {
 			System.out.println("Club: [ " + lc.get(i).getContent().getNombre() + " ]");
 			for(int r = 0; r < lc.get(i).getContent().getConjunto_socios().getSize(); r++) {
-				System.out.print("  -" + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getNombre());
-				System.out.print(" | " + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getPrimer_apellido());
-				System.out.print(" | " + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getSegundo_apellido());
-				System.out.println(" | " + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getFecha_incorporacion());
+				System.out.print("  -" + lc.get(i).getContent()
+											.getConjunto_socios()
+													.get(r).getContent().getNombre());
+				System.out.print(" | " + lc.get(i).getContent()
+											.getConjunto_socios().get(r)
+													.getContent().getPrimer_apellido());
+				System.out.print(" | " + lc.get(i).getContent()
+											.getConjunto_socios().get(r)
+													.getContent().getSegundo_apellido());
+				System.out.println(" | " + lc.get(i).getContent()
+												.getConjunto_socios().get(r)
+													.getContent().getFecha_incorporacion());
 			}
 			System.out.println();
 		}
 	}
 	
-	
+	/**
+	 * Pre:
+	 * Post: metodo principal el cual ejecuta la mayor parte
+	 * 		 del programa
+	 */
 	public static void main(String[] arg) {
 		String ruta = "C:\\eclip\\practica7";
 		File f = new File(ruta);
@@ -50,7 +78,6 @@ public class Inicio {
 		System.out.print("Cargando datos.... \n{ ");
 		for(int i = 0; i < files.length;i++) {
 			System.out.print(files[i].getName() + " " );
-			
 			try {
 				Scanner lect = new Scanner(files[i]);
 				String name = "";
@@ -66,13 +93,10 @@ public class Inicio {
 				}
 				
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		System.out.println(" } \n");
-		
-		
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 			System.out.println("===================================");
@@ -82,6 +106,7 @@ public class Inicio {
 			System.out.println("|  [ 3 ] Eliminar Socio           |");
 			System.out.println("|  [ 4 ] Ver Club                 |");
 			System.out.println("|  [ 5 ] Eliminar Club            |");
+			System.out.println("|  [ 6 ] Fusionar Club            |");
 			System.out.println("|  [ G ] Guardar                  |");
 			System.out.println("|  [ exit ] Salir                 |");
 			System.out.println("===================================");
@@ -115,7 +140,6 @@ public class Inicio {
 						System.out.print("Club: ");
 						club = sc.nextInt();
 						if(club >= 0 && club < lc.size()) {
-						
 						break;
 						} else {
 							System.out.println("Club invalido");
@@ -132,7 +156,8 @@ public class Inicio {
 				System.out.print(  " - 2ºApellido: ");
 				String apellido2 = scStr();
 				System.out.println("Añadiendo...");
-				lc.get(club).getContent().addSocio(new Socio(name,apellido1,apellido2,date+""));
+				lc.get(club).getContent()
+						.addSocio(new Socio(name,apellido1,apellido2,date+""));
 			}else if(data.equalsIgnoreCase("3")) {
 				System.out.println("==============================");
 				System.out.println("Elija un club: ");
@@ -159,7 +184,8 @@ public class Inicio {
 					try {
 						System.out.print("Club: ");
 						socio = sc.nextInt();
-						if(socio >= 0 && socio < lc.get(club).getContent().getConjunto_socios().getSize()) {
+						if(socio >= 0 && socio < lc.get(club).getContent()
+													.getConjunto_socios().getSize()) {
 						
 						break;
 						} else {
@@ -192,10 +218,14 @@ public class Inicio {
 				}	
 				System.out.println("Club: [ " + lc.get(club).getContent().getNombre() + " ]");
 				for(int r = 0; r < lc.get(club).getContent().getConjunto_socios().getSize(); r++) {
-					System.out.print("  -" + lc.get(club).getContent().getConjunto_socios().get(r).getContent().getNombre());
-					System.out.print(" | " + lc.get(club).getContent().getConjunto_socios().get(r).getContent().getPrimer_apellido());
-					System.out.print(" | " + lc.get(club).getContent().getConjunto_socios().get(r).getContent().getSegundo_apellido());
-					System.out.println(" | " + lc.get(club).getContent().getConjunto_socios().get(r).getContent().getFecha_incorporacion());
+					System.out.print("  -" + lc.get(club).getContent().getConjunto_socios()
+												.get(r).getContent().getNombre());
+					System.out.print(" | " + lc.get(club).getContent().getConjunto_socios()
+												.get(r).getContent().getPrimer_apellido());
+					System.out.print(" | " + lc.get(club).getContent().getConjunto_socios()
+												.get(r).getContent().getSegundo_apellido());
+					System.out.println(" | " + lc.get(club).getContent().getConjunto_socios()
+												.get(r).getContent().getFecha_incorporacion());
 				}
 			}else if(data.equalsIgnoreCase("5")) {
 				System.out.println("==============================");
@@ -219,6 +249,12 @@ public class Inicio {
 				}	
 				lc.delete(club);
 				
+			}else if(data.equalsIgnoreCase("6")) {
+				
+				
+				
+				
+				
 			}else if(data.equalsIgnoreCase("g")) {
 				System.out.println("[ Iniciando actualizacion no cerrar programa ]");
 				files = f.listFiles();
@@ -231,27 +267,32 @@ public class Inicio {
 					try {
 						Formatter out = new Formatter(ruta + "\\" + i +".club");
 						out.format("1:{Club} String Nombre"+"\n");
-						out.format("2:{Socios} String nombre, String primer_apellido, String segundo_apellido, String fecha_incorporacion"+"\n");
+						out.format("2:{Socios} String nombre, "
+								+ "String primer_apellido, "
+								+ "String segundo_apellido, "
+								+ "String fecha_incorporacion"+"\n");
 						out.format(lc.get(i).getContent().getNombre() +"\n");
-						for(int r = 0; r < lc.get(i).getContent().getConjunto_socios().size();r++) {
+						for(int r = 0; r < lc.get(i)
+								.getContent().getConjunto_socios().size();r++) {
 							out.format(
-									lc.get(i).getContent().getConjunto_socios().get(r).getContent().getNombre()
-									+ "," + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getPrimer_apellido()
-									+ "," + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getSegundo_apellido()
-									+ "," + lc.get(i).getContent().getConjunto_socios().get(r).getContent().getFecha_incorporacion()+"\n"
+									lc.get(i).getContent().getConjunto_socios()
+										.get(r).getContent().getNombre()
+									+ "," + lc.get(i).getContent().getConjunto_socios()
+										.get(r).getContent().getPrimer_apellido()
+									+ "," + lc.get(i).getContent().getConjunto_socios()
+										.get(r).getContent().getSegundo_apellido()
+									+ "," + lc.get(i).getContent().getConjunto_socios()
+										.get(r).getContent().getFecha_incorporacion()+"\n"
 									);
 						}
 						out.close();
-						System.out.println("Club añadido: " + lc.get(i).getContent().getNombre());
+						System.out.println("Club añadido: " 
+								+ lc.get(i).getContent().getNombre());
 						System.out.println("Gardado club nº " + i);
 					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
-				
-				
-				
 			}
 			clear();
 		}

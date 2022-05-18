@@ -3,6 +3,9 @@ package practicas.practica7;
 public class Lista_Socios {
 	private Nodo_Socio first;
 	private int size;
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Lista_Socios() {
 		this.first = null;
 		this.size = 0;
@@ -16,7 +19,10 @@ public class Lista_Socios {
 	public Nodo_Socio getFirst() {
 		return first;
 	}
-
+	
+	/**
+	 * GETERS AND SETES
+	 */
 	public void setFirst(Nodo_Socio first) {
 		this.first = first;
 	}
@@ -29,6 +35,11 @@ public class Lista_Socios {
 		this.size = size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: metodo el cual añade un nodo de socio
+	 * 		 a la lista
+	 */
 	public boolean add(Nodo_Socio node) {
 		try {
 			if(size == 0) { // si size es 0 el nuevo nodo sera first
@@ -46,6 +57,11 @@ public class Lista_Socios {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo socio ordenado
+	 * 		 a la lista
+	 */
 	public void addOrden(Nodo_Socio node) {
 		Nodo_Socio p = first;
 		if(size > 0) {
@@ -66,7 +82,11 @@ public class Lista_Socios {
 		}
 	}
 	
-	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual añade un nodo socio a una posicion
+	 * 		 de la lista
+	 */
 	public boolean add(int position, Nodo_Socio node) {
 		try {
 			if(position == 0) {
@@ -92,6 +112,11 @@ public class Lista_Socios {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual elimine un nodo
+	 * 		 de una posicion de la lista 
+	 */
 	public boolean delete(int position) {
 		try {
 			if(position == 0) {
@@ -122,6 +147,11 @@ public class Lista_Socios {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: metodo el cual devuelve el tamaño
+	 * 		 de la lista
+	 */
 	public int size() {
 		return size;
 	}
@@ -141,7 +171,11 @@ public class Lista_Socios {
 	}
 	
 	/* Shows */
-	
+	/**
+	 * Pre:
+	 * Post: metodo el cual muestra los datos de los socios de la
+	 * 		 lista
+	 */
 	public void show(int position) {show(position, true);   }
 	public void show(int position, boolean ln) {
 		Nodo_Socio d = get(position);
@@ -162,7 +196,10 @@ public class Lista_Socios {
 		}
 		System.out.println();
 	}
-
+	
+	/**
+	 * TO STRING
+	 */
 	@Override
 	public String toString() {
 		return "Lista_Socios > \n" + first;

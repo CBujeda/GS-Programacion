@@ -6,6 +6,9 @@ public class Socio {
 	private String primer_apellido;
 	private String segundo_apellido;
 	private String fecha_incorporacion;
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Socio(String nombre, String primer_apellido, String segundo_apellido, String fecha_incorporacion) {
 		super();
 		this.nombre = nombre;
@@ -22,6 +25,9 @@ public class Socio {
 		super();
 		this.nombre = nombre;
 	}
+	/**
+	 * GETERS AND SETERS
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -46,6 +52,10 @@ public class Socio {
 	public void setFecha_incorporacion(String fecha_incorporacion) {
 		this.fecha_incorporacion = fecha_incorporacion;
 	}
+	
+	/**
+	 * TO STRING
+	 */
 	@Override
 	public String toString() {
 		return "Socio [Nombre: " + nombre + ", 1º Apellido: " + primer_apellido + ", 2º Apellido: "

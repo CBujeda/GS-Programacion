@@ -5,6 +5,9 @@ public class Lista_Clubes {
 
 	private Nodo_Club first;
 	private int size;
+	/**
+	 * CONSTRUCTORES
+	 */
 	public Lista_Clubes() {
 		this.first = null;
 		this.size = 0;
@@ -19,6 +22,9 @@ public class Lista_Clubes {
 		return first;
 	}
 
+	/**
+	 * SETERS AND GETTERS
+	 */
 	public void setFirst(Nodo_Club first) {
 		this.first = first;
 	}
@@ -30,6 +36,12 @@ public class Lista_Clubes {
 	public void setSize(int size) {
 		this.size = size;
 	}
+	
+	/**
+	 * Pre:
+	 * Post: Metodos los cuales reciviendo un string o un nodo de club lo añaden a la 
+	 * 		 Lista de clubes
+	 */
 	public boolean add(String nombre) { return add(new Nodo_Club(new Club(nombre),null));}
 	public boolean add(Nodo_Club node) {
 		try {
@@ -48,6 +60,11 @@ public class Lista_Clubes {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo que con una determinada posicion añade
+	 * 		 un nodo de club
+	 */
 	public boolean add(int position, Nodo_Club node) {
 		try {
 			if(position == 0) {
@@ -73,6 +90,11 @@ public class Lista_Clubes {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual al introducir una posicion
+	 * 		 eliminamos un nodo club
+	 */
 	public boolean delete(int position) {
 		try {
 			if(position == 0) {
@@ -103,10 +125,18 @@ public class Lista_Clubes {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Metodo el cual devuelve el tamaño de la
+	 * 		 lista
+	 */
 	public int size() {
 		return size;
 	}
 	
+	/**
+	 * METODOS GET AND SETTERS
+	 */
 	public Club getClub(int position) {return get(position).getContent();}
 	
 	public Nodo_Club get(int position) {
@@ -124,7 +154,10 @@ public class Lista_Clubes {
 	}
 	
 	/* Shows */
-	
+	/**
+	 * Pre:
+	 * Post: Metodos los cuales muestran los datos de los clubs
+	 */
 	public void show(int position) {show(position, true);   }
 	public void show(int position, boolean ln) {
 		Nodo_Club d = get(position);

@@ -27,7 +27,7 @@ public class Nodo_Club {
 	}
 	@Override
 	public String toString() {
-		return " " + content + " ";
+		return "" + content + "";
 	}
 	
 	

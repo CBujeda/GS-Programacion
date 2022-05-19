@@ -7,10 +7,7 @@ import java.util.Formatter;
 import java.util.Scanner;
 
 public class Inicio {
-	
-	// revisar añadir al menu juntar clubs
-	
-	//----------------------------------------------
+
 	/**
 	 * Pre:
 	 * Post: Metodo el cual solicita al usuario introducir un string
@@ -252,8 +249,54 @@ public class Inicio {
 			}else if(data.equalsIgnoreCase("6")) {
 				
 				
+				System.out.println("==============================");
+				System.out.println("Elija un club principal: ");
+				lc.show();
+				System.out.println("==============================");
+				int club;
+				while(true) {
+					try {
+						System.out.print("Club: ");
+						club = sc.nextInt();
+						if(club >= 0 && club < lc.size()) {
+						
+						break;
+						} else {
+							System.out.println("Club invalido");
+						}
+					}catch(Exception e) {
+						System.out.println("No se introdujo un numero");
+					}
+				}
 				
+				System.out.println("==============================");
+				System.out.println("Club Secundario: ");
+				lc.show();
+				System.out.println("==============================");
+				int club2;
+				while(true) {
+					try {
+						System.out.print("Club: ");
+						club2 = sc.nextInt();
+						if(club2 >= 0 && club2 < lc.size()) {
+						
+						break;
+						} else {
+							System.out.println("Club invalido");
+						}
+					}catch(Exception e) {
+						System.out.println("No se introdujo un numero");
+					}
+				}
 				
+				if(club == club2) {
+					System.out.println("Fusionando el secundario con el primario....");
+					lc.getClub(club).unionClub(lc.getClub(club2));
+					lc.delete(club2);
+					System.out.println("Fusion completa");
+				}else {
+					System.out.println("Error no puede fusionarse el mismo club con sigo mismo");
+				}
 				
 			}else if(data.equalsIgnoreCase("g")) {
 				System.out.println("[ Iniciando actualizacion no cerrar programa ]");

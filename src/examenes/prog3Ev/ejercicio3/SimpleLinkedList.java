@@ -126,7 +126,6 @@ public class SimpleLinkedList {
 						p = p.getNext();
 				}
 				p.setNext(p.getNext().getNext());
-				
 				size--;
 				return true;
 			}

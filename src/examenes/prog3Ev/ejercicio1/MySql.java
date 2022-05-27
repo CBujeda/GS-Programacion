@@ -30,16 +30,16 @@ public class MySql {
 				connect = DriverManager
 						.getConnection("jdbc:mysql://" + host + "?"
 								+ "user=" + user + "&password=" + passwd );
-				   //statement = connect.createStatement();
-				   preparedStatement = connect
+				//statement = connect.createStatement();
+				preparedStatement = connect
 					       .prepareStatement("insert into registro(palabra,letra,linea)"
 					       					+ " values (?, ?, ?)");
 				   
-				   preparedStatement.setString(1, dato);
-				   preparedStatement.setString(2, letra);
-				   preparedStatement.setInt(3, linea);
-				   preparedStatement.executeUpdate();
-				   //connect.commit();
+				preparedStatement.setString(1, dato);
+				preparedStatement.setString(2, letra);
+				preparedStatement.setInt(3, linea);
+				preparedStatement.executeUpdate();
+				//connect.commit();
 			} catch (Exception e) {
 				throw e;
 			} finally {

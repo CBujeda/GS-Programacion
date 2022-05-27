@@ -1,5 +1,8 @@
 package examenes.prog3Ev.ejercicio2;
 
+/**
+ * Objeto el cual almacena una Localidad con su cantidad respectiva
+ */
 public class LocalCont {
 
 	private String local;

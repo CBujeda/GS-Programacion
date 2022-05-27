@@ -18,6 +18,5 @@ public class Inicio {
 		l.show();
 		l.eliminarMayor();
 		l.show();
-		
 	}
 }

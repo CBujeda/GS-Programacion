@@ -1,5 +1,8 @@
 package examenes.prog3Ev.ejercicio2;
 
+/**
+ * Objeto el cual almacena un año con su cantidad respectiva
+ */
 public class DivYear {
 
 	private int year;

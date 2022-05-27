@@ -33,7 +33,6 @@ public class Inicio {
 					palabra = palabra.replaceAll("¿", "");
 					palabra = palabra.replaceAll("\\?", "");
 					palabra = palabra.replaceAll("\\.", "");
-					//System.out.println(palabra);
 					boolean valid = false;
 					if(palabra.length() >= 1) {
 						if(palabra.substring(0,1).equalsIgnoreCase(letra) ||
@@ -48,13 +47,9 @@ public class Inicio {
 						}
 					}
 				}
-				
 			}	
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 }

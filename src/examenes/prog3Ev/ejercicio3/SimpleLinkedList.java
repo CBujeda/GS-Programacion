@@ -1,5 +1,8 @@
 package examenes.prog3Ev.ejercicio3;
 
+/**
+ * Objeto el cual contiene una lista de datos
+ */
 public class SimpleLinkedList {
 
 	private Node first;
@@ -49,7 +52,10 @@ public class SimpleLinkedList {
 		return delete(t.getIndex());
 	}
 	
-	
+	/**
+	 * Pre:
+	 * Post: Método el cual añade un dato a la lista 
+	 */
 	public boolean add(Node node) {
 		try {
 			if(size == 0) { // si size es 0 el nuevo nodo sera first
@@ -67,6 +73,10 @@ public class SimpleLinkedList {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Método el cual añade un dato a la lista en una posición determinada
+	 */
 	public boolean add(int position, Node node) {
 		try {
 			if(position == 0) {
@@ -76,7 +86,7 @@ public class SimpleLinkedList {
 				return true;
 			} else if (position == size) {
 				return add(node);
-			}else {
+			} else {
 				Node p = first;
 				for(int i = 1; i < position; i++) {
 						p = p.getNext();
@@ -92,6 +102,10 @@ public class SimpleLinkedList {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Método el cual elimina un dato de la lista en una posición determinada
+	 */
 	public boolean delete(int position) {
 		try {
 			if(position == 0) {
@@ -106,7 +120,7 @@ public class SimpleLinkedList {
 				p.setNext(null);
 				size--;
 				return true;
-			}else {
+			} else {
 				Node p = first;
 				for(int i = 1; i < position; i++) {
 						p = p.getNext();
@@ -122,10 +136,18 @@ public class SimpleLinkedList {
 		}
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Método el cual devuelve el tamaño de una lista
+	 */
 	public int size() {
 		return size;
 	}
 	
+	/**
+	 * Pre:
+	 * Post: Método el cual obtiene un dato de una lista mediante un índice
+	 */
 	public Node get(int position) {
 		try {
 			if(position < size && position >= 0) {
@@ -139,15 +161,17 @@ public class SimpleLinkedList {
 			System.out.println(e.toString());	
 		} return null;
 	}
-	
-	/* Shows */
-	
+
+	/**
+	 * Pre:
+	 * Post: Métodos los cuales muestran los datos por pantalla
+	 */
 	public void show(int position) {show(position, true);   }
 	public void show(int position, boolean ln) {
 		Node d = get(position);
 		if(d != null) {
 			System.out.print("("+position+")[ "+d.getContent()+" ]"); 
-		}else {
+		} else {
 			System.out.print("(?"+position+")[ "+null+" ]"); 
 		}
 		if(ln == true) {

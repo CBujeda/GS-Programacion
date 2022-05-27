@@ -14,17 +14,16 @@ public class MySql {
 		private Connection connect = null;
 		private Statement statement = null;
 		private PreparedStatement preparedStatement = null;
-		/*
-		 * Almacena el resultado de las consultas en un dato de 
-		 * tipo ResultSet, que tiene sus propios métodos para trabajar
-		 * con las tablas y columnas.
-		 */
+
 		private ResultSet resultSet = null;
 		final private String host = "localhost:3306/examen";
 		final private String user = "root";
 		final private String passwd = "root";
 		
-		
+		/**
+		 * Pre:
+		 * Post: Método el cual inserta los datos recibidos en MySql
+		 */
 		public void setDato(String dato, String letra, int linea) throws Exception {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
@@ -48,6 +47,10 @@ public class MySql {
 			}
 		}
 		
+		/**
+		 * Pre:
+		 * Post: Método el cual cierra todas las conexiones
+		 */
 		private void close() {
 			try {
 				if (resultSet != null) {

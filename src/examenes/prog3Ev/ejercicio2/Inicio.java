@@ -68,7 +68,7 @@ public class Inicio {
 				if(year >= 2013 && year <= 2019 && datos[1].equalsIgnoreCase("Si")) {
 					if(l.size() == 0) {
 						l.add(new LocalCont(datos[0],1));
-					}else {
+					} else {
 						boolean contiene = false;
 						for(int i = 0; i < l.size(); i++) {
 							if(l.get(i).getLocal().equalsIgnoreCase(datos[0])) {
@@ -91,8 +91,10 @@ public class Inicio {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Con separacion :" + con2019.getYear() + ", Total: " + con2019.getCont());
-		System.out.println("Sin separacion :" + con2018.getYear() + ", Total: " + con2018.getCont());
+		System.out.println("Con separacion :" + con2019.getYear() 
+								+ ", Total: " + con2019.getCont());
+		System.out.println("Sin separacion :" + con2018.getYear() +
+								  ", Total: " + con2018.getCont());
 		l = organizador(l);
 		if(l.size() > 0) {
 			for(int i = 0; i < 1;i++) {

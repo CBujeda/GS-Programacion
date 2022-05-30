@@ -10,10 +10,15 @@ class InicioTest {
 	@Test
 	public void povOf2test() {
 		String data;	
-		for(int i = -2; i == 2; i++ ) {
+		for(int i = -5; i < 5; i++ ) {
 			data = Inicio.povOf2(i);
-			int d = i*i;
-			assertEquals(data,d );
+			int d = i*2;
+			assertEquals(data,d+"" );
 		}
+	}
+	
+	@Test
+	public void positivos() {
+		assertEquals(Inicio.povOf2(2),4+"" );	
 	}
 }

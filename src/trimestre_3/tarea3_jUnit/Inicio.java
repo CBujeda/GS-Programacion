@@ -42,7 +42,7 @@ public class Inicio {
 	}
 
 	public static void main(String[] arg) {
-		System.out.println(povOf2(1));
+		System.out.println(povOf2(2));
 	}
 
 }
